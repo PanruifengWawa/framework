@@ -1,1 +1,2 @@
-hello pangou!
+<?php
+   echo $_GET['name'];

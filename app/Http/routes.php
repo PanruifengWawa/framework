@@ -15,11 +15,11 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('test','WelcomeController@test');
 
-Route::get('panbb','WelcomeController@wawa');
-
+Route::get('panbb','PanruifengController@wawa');
+Route::get('hehe','PanruifengController@hehe');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-]); 
+]);

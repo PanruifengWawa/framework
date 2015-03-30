@@ -1,8 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2015/3/30
- * Time: 15:29
- */
-echo "2333";
+<html>
+ <body>
+    <form action="hehe" method="get">
+        <input type="text" name="name">
+        <input type="submit" value="test">
+    </form>
+ </body>
+</html>
