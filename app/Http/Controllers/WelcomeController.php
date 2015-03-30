@@ -37,4 +37,9 @@ class WelcomeController extends Controller {
 	{
 		return view('test/a');
 	}
+
+    public function  wawa()
+    {
+        return view('test/wawa');
+    }
 }
