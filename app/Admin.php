@@ -1,12 +1,11 @@
 <?php namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+Class Admin extends Model {
 	protected $fillable = array(
-		'name',
-		'email',
-		'password',
-		'avatar'
+		'username',
+		'password'
 	);
 }

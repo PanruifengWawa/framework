@@ -15,9 +15,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('test','WelcomeController@test');
 
-Route::get('home', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+
+//构建数据库
+//Route::get('make{param}','MakeTableController@index');
