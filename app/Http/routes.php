@@ -12,13 +12,14 @@
 */
 
 $routing = [
-	'/'        => 'WelcomeController',
-	'/{param}' => 'WelcomeController',
+	'/' => 'WelcomeController',
+	'login' => 'LoginController',
+	'login/{param}' => 'LoginController',
 
 ];
 
-foreach($routing as $url => $function) {
-	Route::any($url,$function . '@selectAction');
+foreach ($routing as $url => $function) {
+	Route::any($url, $function . '@selectAction');
 }
 
 
