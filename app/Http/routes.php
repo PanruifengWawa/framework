@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+$routing = [
+	'/'        => 'WelcomeController',
+	'/{param}' => 'WelcomeController',
 
-Route::get('test','WelcomeController@test');
+];
+
+foreach($routing as $url => $function) {
+	Route::any($url,$function . '@selectAction');
+}
 
 
 
