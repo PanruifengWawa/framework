@@ -15,7 +15,7 @@ class MakeTableController extends Controller {
 			$this->comments();
 			$this->questions();
 		}else
-			return call_user_func(array('App\Http\Controllers\MakeTableController',$param));
+			return call_user_func(array('App\Http\Controllers\MakeTableController', $param));
 	}
 
 	public function users() {
