@@ -4,7 +4,8 @@
  * @module Header
  */
 
-define(['react'], function(React) {
+
+define(['react', 'components/Navigation'], function(React, Navigation) {
   // Require stylesheet
   require('./index.less');
 
@@ -12,10 +13,15 @@ define(['react'], function(React) {
   class Header extends React.Component {
     render() {
       return (
-        <header className="header container J_header">
-          <div className="row">
-            <div className="col-sm-2">
-              <a href="/" className="header-logo">InterU</a>
+        <header className="header J_header">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-2">
+                <a href="/" className="header-logo">InterU</a>
+              </div>
+              <div className="col-sm-8">
+                <Navigation />
+              </div>
             </div>
           </div>
         </header>

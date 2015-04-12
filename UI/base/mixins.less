@@ -1,0 +1,25 @@
+/**
+ * Less mixins
+ *
+ * prefix: iu-
+ */
+
+
+/**
+ * 常用卡片的阴影（鼠标悬停不可取消）
+ */
+.iu-box-shadow() {
+  .lh-box-shadow(0 1px 2px @iu-shadow-color);
+}
+
+/**
+ * 常用卡片的阴影（鼠标悬停可取消）
+ */
+.iu-box-shadow-interactive() {
+  .iu-box-shadow();
+  &:hover {
+    .lh-box-shadow(none);
+  }
+}
+
+
