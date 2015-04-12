@@ -30,6 +30,10 @@ module.exports = function(grunt) {
         module: {
           loaders: [
             {
+              test: /\.js$/,
+              loader: 'jsx-loader'
+            },
+            {
               test: /\.less$/,
               loader: 'style-loader!css-loader!less-loader'
             }
@@ -39,7 +43,12 @@ module.exports = function(grunt) {
           // new webpack.optimize.CommonsChunkPlugin("base", "base.bundle.js")
         ],
         resolve: {
-          root: 'UI'
+          root: 'UI',
+          modulesDirectories: [path.resolve(__dirname, 'node_modules')],
+          extensions: ['', '.js']
+        },
+        resolveLoader: { 
+          root: path.join(__dirname, "node_modules") 
         }
       } // base
     },
