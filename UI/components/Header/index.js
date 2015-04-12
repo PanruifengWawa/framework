@@ -5,11 +5,18 @@
  */
 
 define(['react'], function(React) {
+  // Require stylesheet
+  require('./index.less');
+
+  // React component
   class Header extends React.Component {
     render() {
       return (
-        <header>
-          <div class="container">
+        <header className="header container J_header">
+          <div className="row">
+            <div className="col-sm-2">
+              <a href="/" className="header-logo">InterU</a>
+            </div>
           </div>
         </header>
       );
