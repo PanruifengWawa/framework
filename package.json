@@ -1,6 +1,7 @@
 {
   "private": true,
   "devDependencies": {
+    "bootstrap": "^3.3.4",
     "css-loader": "^0.10.1",
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^1.0.1",

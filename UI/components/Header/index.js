@@ -1,7 +1,18 @@
+/**
+ * 全局顶通
+ * 
+ * @module Header
+ */
+
 define(['react'], function(React) {
   class Header extends React.Component {
     render() {
-      return <div>Hello</div>
+      return (
+        <header>
+          <div class="container">
+          </div>
+        </header>
+      );
     }
   }
 
