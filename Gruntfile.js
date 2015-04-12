@@ -49,13 +49,13 @@ module.exports = function(grunt) {
         },
         resolveLoader: { 
           root: path.join(__dirname, "node_modules") 
-        }
+        },
+        watch: true
       } // base
     },
     watch: {
       assets: {
-        files: ['UI/**/*.*'],
-        tasks: ['webpack']
+        files: ['public/UI/**/*.*']
       },
       options: {
         livereload: true
@@ -63,5 +63,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['webpack', 'watch']);
 };
