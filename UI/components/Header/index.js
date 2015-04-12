@@ -1,9 +1,9 @@
 define(['react'], function(React) {
-  var Header = React.createClass({
-    render: function() {
+  class Header extends React.Component {
+    render() {
       return <div>Hello</div>
     }
-  });
+  }
 
   return Header;
 });

@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           loaders: [
             {
               test: /\.js$/,
-              loader: 'jsx-loader'
+              loader: 'jsx-loader?harmony'
             },
             {
               test: /\.less$/,
