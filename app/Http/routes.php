@@ -13,8 +13,8 @@
 
 $routing = [
 	'/' => 'WelcomeController',
-	'login' => 'LoginController',
-	'login/{param}' => 'LoginController',
+	'user/{param}' => 'UserController',
+	'/home' => 'HomeController',
 
 ];
 
