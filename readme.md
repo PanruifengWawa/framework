@@ -27,3 +27,12 @@ $ grunt
 就会编译前端资源，并且当前端代码修改的时候，它会自动重新编译前端资源。
 
 编译遇到问题请联系吴迪。
+
+
+使用服务器开发的同学请注意,第一次使用前端资源或者前端资源有改动时,请将项目文件更新到服务器后,使用ssh连接服务器
+```
+$ npm config set registry https://registry.npm.taobao.org
+$ npm info underscore
+$ npm install
+$ grunt webpack
+```
