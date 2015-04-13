@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div id="header"></div>
+Home
 @endsection
 
 

@@ -5,8 +5,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin"),
 
 // Get all components path
 var entryConfig = {};
-entryConfig['base'] = './UI/base/index';
-entryConfig['components'] = ['./UI/components/index'];
 fs.readdirSync(path.resolve(__dirname, 'UI/pages')).forEach(function(page) {
   entryConfig[page] = ['./UI/pages/', page, '/index'].join('');
 });
@@ -33,7 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin("components", "components.bundle.js")
+    new webpack.optimize.CommonsChunkPlugin("base", "base.bundle.js"),
   ],
   resolve: {
     modulesDirectories: [
