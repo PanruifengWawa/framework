@@ -5,7 +5,7 @@
  */
 
 
-define(['react', 'components/Navigation'], function(React, Navigation) {
+define(['react', '../Navigation'], function(React, Navigation) {
   // Require stylesheet
   require('./index.less');
 

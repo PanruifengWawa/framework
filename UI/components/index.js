@@ -1,5 +1,8 @@
-define(['./Header/index.js'], function(Header) {
-  return {
-    Header: Header
-  };
+define(['./Header', 
+    './Navigation'], 
+  function(Header, Navigation) {
+    return {
+      Header: Header,
+      Navigation: Navigation
+    };
 });
