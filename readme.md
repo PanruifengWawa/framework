@@ -37,11 +37,3 @@ $ npm info underscore
 $ npm install
 $ grunt webpack
 ```
-使用服务器开发的同学请注意,第一次使用前端资源或者前端资源有改动时,请将项目文件更新到服务器后,使用ssh连接服务器
-```
-$ cd laravel
-$ npm config set registry https://registry.npm.taobao.org
-$ npm info underscore
-$ npm install
-$ grunt webpack
-```
