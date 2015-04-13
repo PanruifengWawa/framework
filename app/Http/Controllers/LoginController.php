@@ -18,10 +18,10 @@ class LoginController extends Controller {
 		if (!$username || !$password) {
 			return '404';
 		}
-		try{
+		try {
 			$user = User::where('username', '=', $username)->firstOrFail();
-			\Session::put('user',$user);
-		}catch (ModelNotFoundException $e){
+			\Session::put('user', $user);
+		} catch (ModelNotFoundException $e) {
 			return "该用户名不存在";
 		}
 		return \Redirect::to('/');
@@ -34,7 +34,10 @@ class LoginController extends Controller {
 		$username = \Request::input('username');
 		$password = \Request::input('password');
 		$email = \Request::input('email');
-		if(User::where('username', '=', $username)->count() != 0){
+		if (!$username || !$password || !$email) {
+			return '404';
+		}
+		if (User::where('username', '=', $username)->count() != 0) {
 			return "该用户名已被注册";
 		}
 		$user = new User();
@@ -43,7 +46,7 @@ class LoginController extends Controller {
 		$user->email = $email;
 		$user->avatar = '';
 		$user->save();
-		\Session::put('user',$user);
+		\Session::put('user', $user);
 		return \Redirect::to('/');
 	}
 }

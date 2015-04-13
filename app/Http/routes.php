@@ -15,6 +15,7 @@ $routing = [
 	'/' => 'WelcomeController',
 	'login' => 'LoginController',
 	'login/{param}' => 'LoginController',
+	'/home' => 'HomeController',
 
 ];
 
