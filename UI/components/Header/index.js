@@ -22,6 +22,13 @@ define(['react', '../Navigation'], function(React, Navigation) {
               <div className="col-sm-8">
                 <Navigation />
               </div>
+              <div className="col-sm-1">
+                <div className="header-button">
+                  <a href="#/contribute">
+                    <span>&#xe606;</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </header>
