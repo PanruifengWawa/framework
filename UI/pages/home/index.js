@@ -1,3 +1,2 @@
-require(['components', 'react'], function(components, React) {
-  require('base');
+require(['components', 'react', 'base'], function(components, React) {
 });
