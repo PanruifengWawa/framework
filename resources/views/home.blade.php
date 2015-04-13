@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-Home
+<div id="J_index"></div>
 @endsection
 
 

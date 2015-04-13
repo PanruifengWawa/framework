@@ -1,0 +1,56 @@
+/**
+ * 用户登录首页
+ * 
+ * @module Index
+ */
+
+
+define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pagination) {
+  // Require stylesheet
+  require('./index.less');
+
+  // React component
+  class Cardflow extends React.Component {
+    render() {
+      return (
+        <div>
+          <div className="col-md-4 col-md-push-4">
+            <section className="selfcard">
+              <div className="selfcard-body">
+                <header className="clearfix">
+                  <a href="#" style={{float: 'left'}}>
+                    <img className="img-circle" src={window.iu.user.avatar} width="52" height="52"/>
+                  </a>
+                  <div className="pl20" style={{overflow: 'hidden'}}>
+                    <p className="selfname"><strong><a href="#/profile">{window.iu.user.username}</a></strong></p>
+                    <p className="selfdescription">{window.iu.user.description}</p>
+                    <div className="a_numtext">
+                      <a href="#/my" >
+                        <div className="numtext">
+                          <p className="num_numtext">{window.iu.user.answered}</p>
+                          <p className="text_numtext">回答</p>
+                        </div>     
+                      </a>
+                      <a href="#/my" className="a_numtext">
+                        <div className="numtext">
+                          <p className="num_numtext">{window.iu.user.asked}</p>
+                          <p className="text_numtext">问题</p>
+                        </div>     
+                      </a>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </section>
+            <CardPanel />
+          </div>
+          <div className="col-md-4 col-md-pull-4">
+            <CardPanel />
+          </div>
+        </div>
+      );
+    }
+  }
+
+  return Cardflow;
+});

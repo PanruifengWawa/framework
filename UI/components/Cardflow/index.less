@@ -1,10 +1,16 @@
 /*Correspond card-flow.html, be used in card-flow.html*/
 
-.selfcard-body{
-  padding: 1.6rem;
+@import '~base/mixins';
+
+.selfcard {
+  .iu-box-shadow-interactive();
+
+  &-body {
+    padding: 1.6rem;
+  }
 }
 
-.selfname .selfdescription {
+.selfname, .selfdescription {
   font-size: 2rem;
 }
 

@@ -5,9 +5,8 @@
  */
 
 
-define(['react', '../Card-flow', '../Pagination'], function(React, Navigation) {
+define(['react', '../Cardflow', '../Pagination'], function(React, Cardflow, Pagination) {
   // Require stylesheet
-  require('./index.less');
 
   // React component
   class Index extends React.Component {
@@ -16,11 +15,10 @@ define(['react', '../Card-flow', '../Pagination'], function(React, Navigation) {
         <div className="container">
           <div className="row">
             <div className="col-md-2"></div>
-              <Card-flow />
-            </div>
-            <div className="row">
-              <Pagination />
-            </div>
+            <Cardflow />
+          </div>
+          <div className="row">
+            <Pagination />
           </div>
         </div>
       );

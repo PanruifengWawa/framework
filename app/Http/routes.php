@@ -14,7 +14,7 @@
 $routing = [
 	'/' => 'WelcomeController',
 	'user/{param}' => 'UserController',
-	'/home' => 'HomeController',
+	'/home' => 'HomeController'
 
 ];
 

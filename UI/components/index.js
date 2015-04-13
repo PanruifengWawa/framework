@@ -1,8 +1,12 @@
 define(['./Header', 
-    './Navigation'], 
-  function(Header, Navigation) {
+    './Navigation',
+    './Cardflow',
+    './CardPanel'], 
+  function(Header, Navigation, Cardflow, CardPanel) {
     return {
       Header: Header,
-      Navigation: Navigation
+      Navigation: Navigation,
+      Cardflow: Cardflow,
+      CardPanel: CardPanel
     };
 });

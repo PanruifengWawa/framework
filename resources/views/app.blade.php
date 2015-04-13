@@ -10,7 +10,7 @@
 		if(!$user)$user='';
 	?>
 	<script>
-		window.iu = null;
+		window.iu = {};
 		window.iu['user'] = {{$user}};
 	</script>
 </head>
