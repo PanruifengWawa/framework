@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+
+
+use App\User;
+
 class UserController extends Controller {
 	public function login() {
 		if (!\Request::isMethod('post')) {
@@ -31,7 +35,7 @@ class UserController extends Controller {
 		if (!$username || !$password || !$email) {
 			return $this->reportError("用户名、密码和邮箱不能为空");
 		}
-		if (User::where('username', '=', $username)->count() != 0) {
+		if (User::where('name', '=', $username)->count() != 0) {
 			return $this->reportError("该用户名已被注册");
 		}
 		$user = new User();

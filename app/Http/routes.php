@@ -13,9 +13,9 @@
 
 $routing = [
 	'/' => 'WelcomeController',
-	'user/{param}' => 'UserController',
+	'/user/{param}' => 'UserController',
 	'/home' => 'HomeController',
-
+	'pages/{param}' => 'PagesController',
 ];
 
 foreach ($routing as $url => $function) {

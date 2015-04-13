@@ -11,7 +11,7 @@
 	?>
 	<script>
 		window.iu = null;
-		window.iu['user'] = {{$user}};
+		window.iu['user'] = <?php echo $user;?>
 	</script>
 </head>
 <body>
