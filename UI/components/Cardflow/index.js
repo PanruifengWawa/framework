@@ -13,12 +13,12 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
   class Cardflow extends React.Component {
     render() {
       return (
-        <div>
-          <div className="col-md-4 col-md-push-4">
+        <div className="row">
+          <div className="col-md-5 col-md-push-5">
             <section className="selfcard">
               <div className="selfcard-body">
                 <header className="clearfix">
-                  <a href="#" style={{float: 'left'}}>
+                  <a href="#" className="selfcard-pic">
                     <img className="img-circle" src={window.iu.user.avatar} width="52" height="52"/>
                   </a>
                   <div className="pl20" style={{overflow: 'hidden'}}>
@@ -44,7 +44,7 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
             </section>
             <CardPanel />
           </div>
-          <div className="col-md-4 col-md-pull-4">
+          <div className="col-md-5 col-md-pull-5">
             <CardPanel />
           </div>
         </div>

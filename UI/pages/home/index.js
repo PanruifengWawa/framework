@@ -8,7 +8,8 @@ require(['components', 'react', 'base'], function(components, React) {
     answered: 27,
     asked: 36
   };
+  require('./index.less');
 
-  React.render(<components.Index user={window.iu.user}/>, document.getElementById('J_index'));
+  React.render(<components.MainPage user={window.iu.user}/>, document.getElementById('J_index'));
 
 });

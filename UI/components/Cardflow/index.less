@@ -4,27 +4,43 @@
 
 .selfcard {
   .iu-box-shadow-interactive();
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border: 1px solid transparent;
+  color: @iu-font-primary;
+  font-size: 1.6rem;
 
   &-body {
     padding: 1.6rem;
   }
+
+  &-pic {
+    float: left;
+    padding: 1.4rem;
+
+    .img-circle {
+      border-radius: 26px;
+    }
+  }
 }
 
 .selfname, .selfdescription {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
 .selfdescription {
-  color:#b5c2d0;
+  color:@iu-font-primary;
 }
 
 .numtext {
   display: inline-block;
-  margin: auto 2.8rem;
+  margin: 0 2.8rem;
   text-align: center;
 }
 
 .num_numtext {
+  margin-top: 1rem;
   font-size: 4rem;
   margin-bottom: 0;
 }

@@ -39,3 +39,21 @@
   }
 }
 
+/**
+ * 按钮的通用样式
+ */
+.iu-button() {
+  font-size: 1.6rem;
+  color: white;
+  width: 6.4rem;
+  border-radius: 1px;
+  height: 3.4rem;
+  .iu-box-shadow(); 
+  background-color: @iu-link-color;
+  text-align: center;
+  &:hover {
+    .lh-box-shadow(none);
+    color: @in-link-hover-color;
+  }
+}
+

@@ -9,21 +9,20 @@ define(['react', '../Cardflow', '../Pagination'], function(React, Cardflow, Pagi
   // Require stylesheet
 
   // React component
-  class Index extends React.Component {
+  class MainPage extends React.Component {
     render() {
       return (
         <div className="container">
           <div className="row">
-            <div className="col-md-2"></div>
-            <Cardflow />
+            <div className="col-md-1"></div>
+            <div className="col-md-10"><Cardflow /></div>
+            <div className="col-md-1"></div>
           </div>
-          <div className="row">
-            <Pagination />
-          </div>
+          <Pagination />
         </div>
       );
     }
   }
 
-  return Index;
+  return MainPage;
 });

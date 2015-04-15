@@ -10,13 +10,8 @@
 		if(!$user)$user='';
 	?>
 	<script>
-<<<<<<< HEAD
 		window.iu = {};
 		window.iu['user'] = {{$user}};
-=======
-		window.iu = null;
-		window.iu['user'] = <?php echo $user;?>
->>>>>>> 87f3c646d950dcfdc4139d92722a469145e02b03
 	</script>
 </head>
 <body>

@@ -25,7 +25,9 @@ define(['react', '../Navigation'], function(React, Navigation) {
               <div className="col-sm-1">
                 <div className="header-button">
                   <a href="#/contribute">
-                    <span>&#xe606;</span>
+                    <span className="header-button-pencil">
+                      <span>&#xe606;</span>
+                    </span>
                   </a>
                 </div>
               </div>

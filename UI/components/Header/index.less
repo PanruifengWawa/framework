@@ -1,9 +1,11 @@
 @import '~base/mixins';
 
 .header {
-  height: 8rem;
-  line-height: 8rem;
+  background-color: #fff;
+  height: 6rem;
+  line-height: 6rem;
   vertical-align: middle;
+  margin-bottom: 2rem;
   .iu-box-shadow();
   
   &-logo {
@@ -12,6 +14,10 @@
   }
 
   &-button {
-    font-family: 'iconfont'; 
+    text-decoration: none;
+    .iu-button();
+    &-pencil {
+      font-family: 'iconfont'; 
+    }
   }
 }
