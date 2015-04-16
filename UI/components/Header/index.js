@@ -17,20 +17,22 @@ define(['react', '../Navigation'], function(React, Navigation) {
           <div className="container">
             <div className="row">
               <div className="col-sm-2">
-                <a href="/" className="header-logo">InterU</a>
-              </div>
-              <div className="col-sm-8">
-                <Navigation />
-              </div>
-              <div className="col-sm-1">
-                <div className="header-button">
-                  <a href="#/contribute">
-                    <span className="header-button-pencil">
-                      <span>&#xe606;</span>
-                    </span>
-                  </a>
+                <div className="header-submod-wrap">
+                  <a href="/" className="header-logo">InterU</a>
                 </div>
               </div>
+              <div className="col-sm-8">
+                <div className="header-submod-wrap">
+                  <Navigation />
+                </div>
+              </div>
+              <div className="col-sm-2">
+                <div className="header-submod-wrap">
+                  <a className="header-button" href="#/contribute">
+                    <span className="iconfont">&#xe606;</span>
+                  </a> 
+                </div>
+              </div> 
             </div>
           </div>
         </header>
