@@ -10,42 +10,46 @@
   color: @iu-font-primary;
   font-size: 1.6rem;
 
-  &-body {
-    padding: 1.6rem;
-  }
+  &-head {
+    padding: 1.4rem 1.4rem 0 1.4rem;
 
-  &-pic {
-    float: left;
-    padding: 1.4rem;
+    .selfname, .selfdescription {
+      font-size: 1.5rem;
+      margin-left: 1rem;
+    }
 
-    .img-circle {
-      border-radius: 26px;
+    .selfdescription {
+      color:@iu-font-primary;
+    }
+
+    &-pic {
+      float: left;
+      margin-right: 1.4rem;
+
+      .img-circle {
+        border-radius: 26px;
+      }
     }
   }
-}
 
-.selfname, .selfdescription {
-  font-size: 1.5rem;
-  margin-left: 1rem;
-}
+  &-body {
+    text-align: center;
 
-.selfdescription {
-  color:@iu-font-primary;
-}
+    .numtext {
+      display: inline-block;
+      margin: 0 10%;
+      text-align: center;
+    }
 
-.numtext {
-  display: inline-block;
-  margin: 0 2.8rem;
-  text-align: center;
-}
+    .num_numtext {
+      margin-top: 1rem;
+      font-size: 4rem;
+      margin-bottom: 0;
+    }
 
-.num_numtext {
-  margin-top: 1rem;
-  font-size: 4rem;
-  margin-bottom: 0;
-}
-
-.text_numtext {
-  font-size: 1.5rem;
-  margin-top: -0.5rem;
+    .text_numtext {
+      font-size: 1.5rem;
+      margin-top: -0.5rem;
+    }
+  }
 }

@@ -28,7 +28,7 @@ define(['react', '../Navigation'], function(React, Navigation) {
               </div>
               <div className="col-sm-2">
                 <div className="header-submod-wrap">
-                  <a className="header-button" href="#/contribute">
+                  <a className="header-button" href="#">
                     <span className="iconfont">&#xe606;</span>
                   </a> 
                 </div>

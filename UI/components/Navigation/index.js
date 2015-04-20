@@ -52,7 +52,7 @@ define(['react'], function(React) {
                 <a href="#" className="navigation-link">登录</a>
               </li>
               <li className="navigation-item">
-                <a href="#" className="navigation-link">注册</a>
+                <a href="/pages/register" className="navigation-link">注册</a>
               </li>
             </ul>
           </nav>
