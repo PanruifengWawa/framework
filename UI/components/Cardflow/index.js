@@ -14,6 +14,7 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
     render() {
       return (
         <div className="row">
+          <div className="col-md-1"></div>
           <div className="col-md-5 col-md-push-5">
             <section className="selfcard">
               <div className="selfcard-head">
@@ -51,6 +52,7 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
           <div className="col-md-5 col-md-pull-5">
             <CardPanel />
           </div>
+          <div className="col-md-1"></div>
         </div>
       );
     }

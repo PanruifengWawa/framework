@@ -14,7 +14,7 @@ define(['react', '../Cardflow', '../Pagination'], function(React, Cardflow, Pagi
       return (
         <div className="container">
           <div className="row">
-            <div className="col-md-10 col-md-offset-2"><Cardflow /></div>
+            <div><Cardflow /></div>
           </div>
           <Pagination />
         </div>
