@@ -3,12 +3,15 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model {
-	protected $fillable = array(
-		'content',
-		'user',
-		'users',
-		'company',
-		'comments',
-		'position'
-	);
+  public function comments() {
+    return $this->hasMany('App\Comment');
+  }
+
+  public function companies() {
+    return $this->belongsToMany('App\Company');
+  }
+
+  public function positions() {
+    return $this->belongsToMany('App\Position');
+  }
 }
