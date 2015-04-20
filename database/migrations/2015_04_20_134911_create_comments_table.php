@@ -19,7 +19,10 @@ class CreateCommentsTable extends Migration {
 			$table->dateTime('updated_at');
 			$table->text('content');
 			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('user_id')
+						->references('id')
+						->on('users')
+						->onDelete('cascade');
 
 			// Nesting comments support
 			//

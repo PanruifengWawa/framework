@@ -16,9 +16,15 @@ class CreateQuestionCompanyTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('question_id')->unsigned();
-			$table->foreign('question_id')->references('id')->on('questions');
+			$table->foreign('question_id')
+						->references('id')
+						->on('questions')
+						->onDelete('cascade');
 			$table->integer('company_id')->unsigned();
-			$table->foreign('company_id')->references('id')->on('companies');
+			$table->foreign('company_id')
+						->references('id')
+						->on('companies')
+						->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
