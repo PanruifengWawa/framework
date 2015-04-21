@@ -1,5 +1,7 @@
-require(['components', 'react', 'base'], function(components, React) {
+require(['components', 'react', './SignInForm', 'base'], 
+  function(components, React, SignInForm) {
 
-  console.log('Login');
+  React.render(<SignInForm />,
+    document.getElementById('J_sign-in-form'));
 
 });

@@ -31,7 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin("base", "base.bundle.js"),
+    new webpack.optimize.CommonsChunkPlugin("base", "base.bundle.js")
   ],
   resolve: {
     modulesDirectories: [
