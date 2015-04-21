@@ -6,5 +6,5 @@
 
 
 @section('scripts')
-<script src="UI/register.bundle.js"></script>
+<script src="/UI/register.bundle.js"></script>
 @endsection
