@@ -23,7 +23,7 @@ class UserController extends Controller {
 		if(md5($password) != $user->password)
 			return $this->reportJSONError("密码错误");
 		\Session::put('user', $user);
-		return \Response::json(['error'=>"登陆成功"]);
+		return $user->toJson();
 	}
 
 	public function register() {
