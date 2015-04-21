@@ -1,4 +1,6 @@
-require(['components', 'react', 'base'], function(components, React) {
+require('base');
+
+require(['components', 'react'], function(components, React) {
   
   // TODO: delete this object
   window.iu.user = {

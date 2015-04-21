@@ -6,7 +6,6 @@ define(['react', 'jquery'], function(React, $) {
     }
 
     render() {
-      console.log($);
       return (
         <form onSubmit={this._handleSubmit}>
           <div className="form-control">

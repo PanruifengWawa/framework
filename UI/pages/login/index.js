@@ -1,4 +1,6 @@
-require(['components', 'react', './SignInForm', 'base'], 
+require('base');
+
+require(['components', 'react', './SignInForm'], 
   function(components, React, SignInForm) {
 
   React.render(<SignInForm />,

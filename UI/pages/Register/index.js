@@ -1,4 +1,6 @@
-require(['components', 'react', 'base'], function(components, React) {
+require('base');
+
+require(['components', 'react'], function(components, React) {
 
   React.render(
   	<form action="{{ URL::to('/user/register') }}" method="post" accept-charset="utf-8">

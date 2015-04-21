@@ -1,12 +1,14 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin"),
   webpack = require('webpack'),
+  CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin,
   fs = require('fs'),
   path = require('path');
 
 // Get all components path
-var entryConfig = {};
+var entryConfig = {}, pages = [];
 fs.readdirSync(path.resolve(__dirname, 'UI/pages')).forEach(function(page) {
   entryConfig[page] = ['./UI/pages/', page, '/index'].join('');
+  pages.push(page);
 });
 
 module.exports = {
@@ -31,7 +33,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin("base", "base.bundle.js")
+    new CommonsChunkPlugin("common.bundle.js", pages)
   ],
   resolve: {
     modulesDirectories: [
