@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: './public/UI',
-    publicPath: "UI/",
+    publicPath: "/UI/",
     chunkFilename: "[id].chunk.js"
   },
   devtool: 'source-map',

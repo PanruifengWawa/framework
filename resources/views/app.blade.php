@@ -21,7 +21,7 @@
   <div id="J_header"></div>
 	@yield('content')
 
-  <script src="UI/base.bundle.js"></script>
+  <script src="/UI/base.bundle.js"></script>
 	@yield('scripts')
 </body>
 </html>
