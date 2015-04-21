@@ -1,11 +1,13 @@
-define(['react', 'jquery'], function(React, $) {
+define(['react', 'jquery', 'rx'], function(React, $, Rx) {
   class SignInForm extends React.Component {
     _handleSubmit(e) {
       e.preventDefault();
       // TODO Login
+    
     }
 
     render() {
+      console.log(Rx);
       return (
         <form onSubmit={this._handleSubmit}>
           <div className="form-control">
