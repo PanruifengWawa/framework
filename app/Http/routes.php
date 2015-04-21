@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+$routing = [
+	'/' => 'WelcomeController',
+	'/user/{param}' => 'UserController',
+];
 
-Route::get('test','WelcomeController@test');
-
-Route::get('panbb','PanruifengController@wawa');
-Route::get('hehe','PanruifengController@hehe');
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+foreach ($routing as $url => $function) {
+	Route::any($url, $function . '@selectAction');
+}
