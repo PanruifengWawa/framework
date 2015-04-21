@@ -7,10 +7,9 @@ use App\Question;
 use App\User;
 
 class WelcomeController extends Controller {
-	
+
 	public function index()
 	{
-		$user = \Session::get('user');
 		return view('home');
 	}
 
