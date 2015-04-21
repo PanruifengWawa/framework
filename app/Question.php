@@ -3,6 +3,9 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model {
+  protected $fillable = array('user_id',
+                              'content');
+
   public function comments() {
     return $this->hasMany('App\Comment');
   }
