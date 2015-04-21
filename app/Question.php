@@ -21,7 +21,5 @@ class Question extends Model {
   public function positions() {
     return $this->belongsToMany('App\Position');
   }
-	public function user() {
-		return $this->belongTo('App\User');
-	}
+	
 }
