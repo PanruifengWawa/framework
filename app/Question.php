@@ -6,6 +6,10 @@ class Question extends Model {
   protected $fillable = array('user_id',
                               'content');
 
+  public function user() {
+    return $this->belongsTo('App\User');
+  }
+
   public function comments() {
     return $this->hasMany('App\Comment');
   }
