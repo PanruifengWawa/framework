@@ -7,11 +7,14 @@ use App\Question;
 use App\User;
 
 class WelcomeController extends Controller {
-	
+
 	public function index()
 	{
 		$user = \Session::get('user');
-		return view('home');
+		if($user){
+			$questions = Question::where('user_id', '=', $user->id)->paginate(20);
+		}
+		return view('home', ['question' => $questions]);
 	}
 
 	public function test()

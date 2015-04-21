@@ -2,8 +2,7 @@ define(['react', 'jquery', 'rx'], function(React, $, Rx) {
   class SignInForm extends React.Component {
     _handleSubmit(e) {
       e.preventDefault();
-      // TODO Login
-    
+      Rx.Observable.
     }
 
     render() {

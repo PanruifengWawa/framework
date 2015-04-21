@@ -5,9 +5,12 @@
 	<title>InterU</title>
 	<?php
 		$user = \Session::get('user');
-		unset($user->password);
-		$user = json_encode($user);
-		if(!$user)$user='';
+		if(!$user)
+			$user='';
+		else{
+			unset($user->password);
+			$user = json_encode($user);
+		}
 	?>
 	<script>
 		window.iu = {};

@@ -22,15 +22,12 @@ class DatabaseSeeder extends Seeder {
 			'avatar' => 'http://placehold.it/80x80'
 		));
 
-		$question[0] = App\Question::create(array(
-			'user_id' => $user->id,
-			'content' => '请问在Backbone.js中怎么创建一个Model？'
-		));
-
-		$question[1] = App\Question::create(array(
-			'user_id' => $user->id,
-			'content' => '请问在Angular.js中怎么创建一个Service？'
-		));
+        for($i=0;$i<100;$i++){
+            $question[$i] = App\Question::create(array(
+                'user_id' => $user->id,
+                'content' => '请问在Backbone.js中怎么创建一个Model？' . $i,
+            ));
+        }
 	}
 
 }
