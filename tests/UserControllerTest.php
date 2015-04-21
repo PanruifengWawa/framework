@@ -23,4 +23,14 @@ class UserControllerTest extends TestCase {
     $this->assertEquals(false, isset($body['password']));
   }
 
+  /**
+   * Test register
+   *
+   * @todo finish this test
+   * @return [type] [description]
+   */
+  public function testRegister() {
+
+  }
+
 }
