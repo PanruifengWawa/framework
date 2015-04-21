@@ -10,13 +10,13 @@ class UserController extends Controller {
 		if (!\Request::isMethod('post')) {
 			return $this->reportJSONError("非法请求");
 		}
-		$username = \Request::input('username', null);
+		$email = \Request::input('email', null);
 		$password = \Request::input('password', null);
-		if (!$username || !$password) {
+		if (!$email || !$password) {
 			return $this->reportJSONError("用户名和密码不能为空");
 		}
 		try {
-			$user = User::where('username', '=', $username)->firstOrFail();
+			$user = User::where('email', '=', $email)->firstOrFail();
 		} catch (ModelNotFoundException $e) {
 			return $this->reportJSONError("该用户名不存在");
 		}
@@ -30,22 +30,23 @@ class UserController extends Controller {
 		if (!\Request::isMethod('post')) {
 			return $this->reportJSONError("非法请求");
 		}
-		$username = \Request::input('username');
+		$name = \Request::input('name');
 		$password = \Request::input('password');
 		$email = \Request::input('email');
-		if (!$username || !$password || !$email) {
+		if (!$name || !$password || !$email) {
 			return $this->reportJSONError("用户名、密码和邮箱不能为空");
 		}
-		if (User::where('name', '=', $username)->count() != 0) {
+		if (User::where('name', '=', $name)->count() != 0) {
 			return $this->reportJSONError("该用户名已被注册");
 		}
+		if (User::where('email', '=', $email)->count() != 0) {
+			return $this->reportJSONError("该邮箱已被注册");
+		}
 		$user = new User();
-		$user->name = $username;
+		$user->name = $name;
 		$user->password = md5($password);
 		$user->email = $email;
-		$user->avatar = '';
 		$user->save();
-		\Session::put('user', $user);
 		return \Response::json(['error'=>'注册成功']);
 	}
 
