@@ -31,8 +31,6 @@ class DatabaseSeeder extends Seeder {
 			'user_id' => $user->id,
 			'content' => '请问在Angular.js中怎么创建一个Service？'
 		));
-
-
 	}
 
 }

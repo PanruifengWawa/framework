@@ -12,4 +12,8 @@ abstract class Controller extends BaseController {
 			$param = 'index';
 		return call_user_func(array($this, $param));
 	}
+
+  protected function reportJSONError($st) {
+    return \Response::json(['error' => $st], 400);
+  }
 }
