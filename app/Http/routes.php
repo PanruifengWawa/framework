@@ -14,15 +14,8 @@
 $routing = [
 	'/' => 'WelcomeController',
 	'/user/{param}' => 'UserController',
-	'/home' => 'HomeController',
-	'pages/{param}' => 'PagesController'
 ];
 
 foreach ($routing as $url => $function) {
 	Route::any($url, $function . '@selectAction');
 }
-
-
-
-//构建数据库
-//Route::get('make{param}','MakeTableController@index');

@@ -5,6 +5,7 @@
 use App\User;
 
 class UserController extends Controller {
+
 	public function login() {
 		if (!\Request::isMethod('post')) {
 			return $this->reportError("非法请求");
@@ -51,4 +52,5 @@ class UserController extends Controller {
 	private function reportError($st) {
 		return \Response::json(['error' => $st],400);
 	}
+
 }
