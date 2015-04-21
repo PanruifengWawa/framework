@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div id="J_sign-in-form"></div>
+<div id="J_Login"></div>
 @endsection
 
 

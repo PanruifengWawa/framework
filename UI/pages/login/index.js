@@ -1,9 +1,9 @@
 require('base');
 
-require(['components', 'react', './SignInForm'], 
-  function(components, React, SignInForm) {
+require(['components', 'react', './SessionMain'], 
+  function(components, React, SessionMain) {
 
-  React.render(<SignInForm />,
-    document.getElementById('J_sign-in-form'));
+  React.render(<SessionMain />,
+    document.getElementById('J_Login'));
 
 });

@@ -14,7 +14,7 @@
 	?>
 	<script>
 		window.iu = {};
-		window.iu['user'] = {{$user}};
+		// window.iu['user'] = {{$user}};
 	</script>
 </head>
 <body>

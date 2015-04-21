@@ -1,12 +1,12 @@
 define(['react', 'jquery', 'rx'], function(React, $, Rx) {
+  require('./index.less');
+
   class SignInForm extends React.Component {
     _handleSubmit(e) {
       e.preventDefault();
-      Rx.Observable.
     }
 
     render() {
-      console.log(Rx);
       return (
         <form onSubmit={this._handleSubmit}>
           <div className="form-control">
