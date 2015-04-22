@@ -9,16 +9,10 @@ define(['react', 'jquery', 'rx'], function(React, $, Rx) {
     render() {
       return (
         <form onSubmit={this._handleSubmit}>
-          <div className="form-control">
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" />
-          </div>
-          <div className="form-control">
-            <label htmlFor="email">Password</label>
-            <input type="password" name="password" />
-          </div>
-          <div className="form-control">
-            <input type="submit" value="login"/>
+          <div>
+            <input className="form-control" type="email" name="email" placeholder="邮箱" required="" />
+            <input className="form-control" type="password" name="password" placeholder="密码" required="" />
+            <input className="form-control button_s" type="submit" value="登陆"/>
           </div>
         </form>
       );

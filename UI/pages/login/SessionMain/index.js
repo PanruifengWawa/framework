@@ -10,8 +10,9 @@ define(['react', 'jquery', 'rx', '../SignInForm/'],
 
     render() {
       return (
+      <div>
+      <div className="login-head">
         <div className="container">
-          <div className="login-head">
             <div className="row">
               <div className="col-sm-1"></div>
               <div className="col-sm-5">
@@ -20,11 +21,14 @@ define(['react', 'jquery', 'rx', '../SignInForm/'],
                 <p>--分享面试，面试分享--</p>
               </div>
               <div className="col-sm-1"></div>
-              <div className="col-sm-5">
+              <div className="col-sm-3">
                 <SignInForm />
               </div>
+              <div className="col-sm-2"></div>
             </div>
-          </div>
+        </div>
+      </div>
+        <div className="container">
           <div className="row">
             <div className="col-sm-6 passage-content">
               <p className="passage-heading">
@@ -39,7 +43,9 @@ define(['react', 'jquery', 'rx', '../SignInForm/'],
               <img className="featurette-image" data-src="holder.js/500x500/auto" alt="500x500" src="http://geotypografika.com/wp-content/uploads/2009/01/8851-500-500.jpg" data-holder-rendered="true" />
             </div>
           </div>
+          <br />
           <hr />
+          <br />
           <div className="row">
             <div className="col-sm-6">
               <img class="featurette-image" data-src="holder.js/500x500/auto" alt="500x500" src="http://img1.cache.netease.com/edu/2011/10/9/201110091059517dda1.jpg" data-holder-rendered="true" />
@@ -65,6 +71,7 @@ define(['react', 'jquery', 'rx', '../SignInForm/'],
             </div>
           </div>
         </div>
+      </div>
       );
     }
   }
