@@ -3,18 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>InterU</title>
-	<?php
-		$user = \Session::get('user');
-		if(!$user)
-			$user='';
-		else{
-			unset($user->password);
-			$user = json_encode($user);
-		}
-	?>
 	<script>
 		window.iu = {};
-		// window.iu['user'] = {{$user}};
+		window.iu['token'] = '{{csrf_token()}}';
+		// window.iu['user'] = @{{$user}}};
 	</script>
 </head>
 <body>

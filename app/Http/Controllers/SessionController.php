@@ -28,7 +28,7 @@ class SessionController extends Controller {
 		if(md5($password) != $user->password)
 			return $this->reportJSONError("密码错误");
 		\Session::put('user', $user);
-		return $user->toJson();
+		return \Response::make($user->toJson(), 201);
 	}
 
 
