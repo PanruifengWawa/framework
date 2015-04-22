@@ -13,11 +13,11 @@ class SessionControllerTest extends TestCase {
     $response = $this->call('POST', '/session', [
       'email' => 'test1@interu.com',
       'password' => '123456',
-      '_token' => csrf_token(),
+      '_token' => csrf_token()
     ]);
 
     $body = json_decode($response->getContent(), true);
-    var_dump($body);
+
     $this->assertEquals(200, $response->getStatusCode());
     $this->assertEquals('test1@interu.com', $body['email']);
     $this->assertEquals(false, isset($body['password']));
