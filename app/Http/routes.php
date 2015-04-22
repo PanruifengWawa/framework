@@ -11,12 +11,9 @@
 |
 */
 
-$routing = [
-	'/' => 'WelcomeController',
-	'/user/{param}' => 'UserController',
-  '/questions/{param}' => 'QuestionDetailsController',
-];
 
-foreach ($routing as $url => $function) {
-	Route::any($url, $function . '@selectAction');
-}
+Route::pattern('id', '[0-9]+');
+
+
+Route::resource('session', 'SessionController',
+                ['only' => ['store', 'destroy']]);
