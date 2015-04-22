@@ -7,11 +7,8 @@ class User extends Model {
                               'email',
                               'password',
                               'avatar');
-
-  public function toJson($options = 0) {
-    // 隐藏密码字段
+  function __construct() {
     $this->setHidden(['password']);
-    return parent::toJson($options);
   }
 
   public function questions() {
