@@ -54,7 +54,7 @@ class QuestionDetailsController extends Controller {
 
     }
 
-    private  function  getComments($questionId){
+    private function getComments($questionId){
         try {
             $comments = Comment::where('question_id', '=',  $questionId)->get();
             foreach($comments as $c){
@@ -77,7 +77,7 @@ class QuestionDetailsController extends Controller {
         return null;
     }
 
-    private  function  getCompanies($questionId){
+    private function getCompanies($questionId){
         $questionCompany = DB::select('select * from question_company where question_id = ?', [$questionId]);
         if( $questionCompany == null) return null;
         $i = 0;

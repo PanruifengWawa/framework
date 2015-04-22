@@ -17,7 +17,7 @@ class SessionControllerTest extends TestCase {
     ]);
 
     $body = json_decode($response->getContent(), true);
-    
+    var_dump($body);
     $this->assertEquals(200, $response->getStatusCode());
     $this->assertEquals('test1@interu.com', $body['email']);
     $this->assertEquals(false, isset($body['password']));
