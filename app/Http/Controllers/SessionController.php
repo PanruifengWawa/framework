@@ -37,10 +37,11 @@ class SessionController extends Controller {
 	 *
 	 * @param  int  $id
 	 * @return Response
+	 * @todo Implementation
 	 */
 	public function destroy($id)
 	{
-		//
+		
 	}
 
 }
