@@ -10,7 +10,7 @@ use App\User;
 
 class QuestionDetailsController extends Controller {
 
-    public function  details(){
+    public function details(){
         if (!\Request::isMethod('get')) {
             return $this->reportError("非法请求");
 

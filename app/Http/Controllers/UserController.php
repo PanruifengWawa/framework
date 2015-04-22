@@ -61,7 +61,7 @@ class UserController extends Controller {
 		$user->password = md5($password);
 		$user->email = $email;
 		$user->save();
-		return \Response::json(['error'=>'注册成功']);
+		return $user->toJson();
 	}
 
 	public function signIn() {
