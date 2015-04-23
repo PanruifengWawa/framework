@@ -15,6 +15,10 @@ before_script:
   - mysql -e 'create database IF NOT EXISTS inter;'
   - php artisan migrate --no-interaction --env=testing
   - php artisan db:seed --no-interaction --env=testing
+  - npm install -g webpack
+  - npm install -g grunt
+  - npm install
+  - grunt build
 script: vendor/bin/phpunit
 
 deploy:
@@ -28,5 +32,5 @@ deploy:
     - "rm .env"
     - "mv .env.heroku .env"
     - "composer install --no-interaction --prefer-source"
-    - "php artisan migrate --no-interaction --env=production"
-    - "php artisan db:seed --no-interaction --env=production"
+    - "php artisan migrate --no-interaction"
+    - "php artisan db:seed --no-interaction"
