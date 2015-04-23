@@ -11,10 +11,10 @@ matrix:
 sudo: false
 install: travis_retry composer install --no-interaction --prefer-source
 before_script:
-- mv .env.travis .env
-- mysql -e 'create database IF NOT EXISTS inter;'
-- php artisan migrate --no-interaction --env=test
-- php artisan db:seed --no-interaction --env=test
+  - mv .env.travis .env
+  - mysql -e 'create database IF NOT EXISTS inter;'
+  - php artisan migrate --no-interaction --env=testing
+  - php artisan db:seed --no-interaction --env=testing
 script: vendor/bin/phpunit
 
 deploy:
@@ -28,3 +28,5 @@ deploy:
     - "rm .env"
     - "mv .env.heroku .env"
     - "composer install --no-interaction --prefer-source"
+    - "php artisan migrate --no-interaction --env=production"
+    - "php artisan db:seed --no-interaction --env=production"
