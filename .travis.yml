@@ -20,8 +20,6 @@ before_script:
   - npm install
   - grunt build
 script: vendor/bin/phpunit
-after_script:
-  - rm .env
 
 deploy:
   provider: heroku
@@ -30,3 +28,5 @@ deploy:
   app: inter-u
   on:
     branch: heroku-test
+  run:
+    - "rm .env*"
