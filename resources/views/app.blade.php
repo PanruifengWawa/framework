@@ -6,15 +6,16 @@
 	<?php
 		$user = \Session::get('user');
 		if(!$user)
-			$user='';
+			$user = 'undefined';
 		else{
 			unset($user->password);
-			$user = json_encode($user);
+			$user = $user->toJson();
 		}
 	?>
 	<script>
 		window.iu = {};
-		// window.iu['user'] = {{$user}};
+		window.iu['token'] = '{{{csrf_token()}}}';
+		window.iu['user'] = <?php echo $user ?>;
 	</script>
 </head>
 <body>

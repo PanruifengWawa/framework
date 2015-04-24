@@ -11,7 +11,7 @@ use App\User;
 use App\Position;
 
 class SubQuestionController extends Controller{
-    public function submit(){
+    public function create(){
 
         $company_name = \Request::input('company_name');
         $company = Company::where('name' , '==', $company_name);
