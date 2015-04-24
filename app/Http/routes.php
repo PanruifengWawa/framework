@@ -15,6 +15,8 @@ $routing = [
 	'/' => 'WelcomeController',
 	'/user/{param}' => 'UserController',
     '/question/{param}' => 'QuestionDetailsController',
+
+    '/question/{param}' => 'SubQuestionController',
 ];
 
 foreach ($routing as $url => $function) {
