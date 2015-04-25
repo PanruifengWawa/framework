@@ -1,10 +1,10 @@
 @extends('app')
 
 @section('content')
-<div id="J_register"></div>
+<div id="J_sign-up"></div>
 @endsection
 
 
 @section('scripts')
-<script src="/UI/register.bundle.js"></script>
+<script src="/UI/sign-up.bundle.js"></script>
 @endsection
