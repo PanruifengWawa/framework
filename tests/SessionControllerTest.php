@@ -30,7 +30,12 @@ class SessionControllerTest extends TestCase {
    */
   public function testDestroy() {
     Session::start();
-    $response = $this->call('DELETE', '/session');
-    $this->assertEquals(200, $response->getStatusCode);
+    $response = $this->call('DELETE', 
+      '/session',
+      array(),
+      array(), 
+      array(),
+      array('HTTP_X-CSRF-Token' => csrf_token()));
+    $this->assertEquals(200, $response->getStatusCode());
   }
 }

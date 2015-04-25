@@ -6,16 +6,23 @@ class QuestionControllerTest extends TestCase{
     public function testStore()
     {
         Session::start();
-        $response = $this->call('POST', '/question', [
-            'company_name' => '大潘帝国',
-            'position_name' => 'value',
-            'user_id' => '3',
-            'questions' => json_encode(array('111', '222', '333')),
+
+        $user = \App\User::all()->first();
+
+        $response = $this->call('POST', '/questions', [
+            'company_name' => 'IBM',
+            'position_name' => 'Front-end Engineer',
+            'user_id' => $user->id,
+            'questions' => json_encode(
+                array('Question 1', 
+                    'Question 2')
+            ),
             '_token' => csrf_token(),
         ]);
 
         $body = $response->getContent();
         $this->assertEquals(200, $response->getStatusCode());
-
+        
+        $question[0] = \App\Question::find()
     }
 }
