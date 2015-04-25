@@ -33,10 +33,14 @@ class UserController extends Controller {
 	}
 
 	public function signIn() {
-		return view('user/sign-in');
+		$user = \Session::get('user');
+		if ( $user ) {
+			return redirect('/');
+		}
+		return view('users/sign-in');
 	}
 
 	public function signUp() {
-		return view('user/signUp');
+		return view('users/sign-up');
 	}
 }

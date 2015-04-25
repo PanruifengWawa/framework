@@ -1,10 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Admin;
-use App\Comment;
-use App\Company;
 use App\Question;
-use App\User;
 
 class WelcomeController extends Controller {
 
@@ -19,7 +15,7 @@ class WelcomeController extends Controller {
 				]);
 		}
 		else {
-			return redirect('users/sign-in');
+			return redirect('sign-in');
 		}
 	}
 

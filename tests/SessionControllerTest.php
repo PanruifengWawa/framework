@@ -23,5 +23,14 @@ class SessionControllerTest extends TestCase {
     $this->assertEquals(false, isset($body['password']));
   }
 
-
+  /**
+   * Test destory
+   *
+   * @return  void
+   */
+  public function testDestroy() {
+    Session::start();
+    $response = $this->call('DELETE', '/session');
+    $this->assertEquals(200, $response->getStatusCode);
+  }
 }

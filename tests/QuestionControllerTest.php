@@ -23,6 +23,5 @@ class QuestionControllerTest extends TestCase{
         $this->assertEquals('大潘帝国', $body['companiesUsingQuestion'][0]['name']);
         $this->assertEquals('pan', $body['comments'][0]['user']['name']);
 
-
     }
 }

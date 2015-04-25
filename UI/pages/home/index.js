@@ -1,8 +1,9 @@
 require('base');
 
-require(['components', 'react'], function(components, React) {
+require(['react', './MainPage'], function(React, MainPage) {
   require('./index.less');
 
-  React.render(<components.MainPage user={window.iu.user}/>, document.getElementById('J_index'));
+  React.render(<MainPage user={window.iu.user}/>, 
+    document.getElementById('J_index'));
 
 });

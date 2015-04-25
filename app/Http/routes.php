@@ -18,9 +18,12 @@
 Route::pattern('id', '[0-9]+');
 
 Route::get('/', ['uses' => 'WelcomeController@index']);
+Route::get('sign-in', ['uses' => 'UserController@signIn']);
+Route::get('sign-up', ['uses' => 'UserController@signUp']);
 
 Route::resource('session', 'SessionController',
                 ['only' => ['store', 'destroy']]);
+
 Route::resource('users', 'UserController',
                 ['only' => ['store']]);
 Route::resource('question','QuestionController');

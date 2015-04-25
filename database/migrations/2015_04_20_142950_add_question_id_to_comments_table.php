@@ -31,7 +31,8 @@ class AddQuestionIdToCommentsTable extends Migration {
 	{
 		Schema::table('comments', function(Blueprint $table)
 		{
-			//
+			$table->dropForeign('comments_question_id_foreign');
+			$table->dropColumn('question_id');
 		});
 	}
 

@@ -1,33 +1,36 @@
 <?php
 
-use App\User;
-
 class UserControllerTest extends TestCase {
 
   /**
-   * Test store
+   * Test login
    *
    * @return void
    */
-  public function testStore()
+  public function testLogin()
   {
     Session::start();
-    $response = $this->call('POST', '/users', [
-      'email' => 'test2@interu.com',
-      'password' => '234567',
-      'name' => 'John Wu (2)',
+    $response = $this->call('POST', '/user/login', [
+      'email' => 'test1@interu.com',
+      'password' => '123456',
       '_token' => csrf_token(),
     ]);
 
     $body = json_decode($response->getContent(), true);
 
-    $this->assertEquals(201, $response->getStatusCode());
-    $this->assertEquals('test2@interu.com', $body['email']);
+    $this->assertEquals(200, $response->getStatusCode());
+    $this->assertEquals('test1@interu.com', $body['email']);
     $this->assertEquals(false, isset($body['password']));
-
-    $user = User::where('email', '=', 'test2@interu.com')->firstOrFail();
-    $user->delete();
   }
 
+  /**
+   * Test register
+   *
+   * @todo finish this test
+   * @return [type] [description]
+   */
+  public function testRegister() {
+
+  }
 
 }
