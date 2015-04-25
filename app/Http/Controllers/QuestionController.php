@@ -9,6 +9,7 @@ use App\Company;
 use App\Question;
 use App\User;
 use App\Position;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 
 class QuestionController extends Controller{
 
@@ -16,33 +17,33 @@ class QuestionController extends Controller{
 
         $company = new Company();
         $company_name = \Request::input('company_name');
-        if(!$company_name)return $this->reportError("公司名称不能为空");
+        if(!$company_name)return $this->reportJSONError("公司名称不能为空");
         try {
             $company = Company::where('name', '=', $company_name)->firstOrFail();
         }catch (ModelNotFoundException $e){
-            return $this->reportError("公司不存在");
+            return $this->reportJSONError("公司不存在");
         }
 
         $position = new Position();
         $position_name = \Request::input('position_name');
-        if(!$position_name)return $this->reportError("职位名称不能为空");
+        if(!$position_name)return $this->reportJSONError("职位名称不能为空");
         try {
             $position = Position::where('title', '=', $position_name)->firstOrFail();
         }catch (ModelNotFoundException $e){
-            return $this->reportError("职位不存在");
+            return $this->reportJSONError("职位不存在");
         }
 
         $user = new User();
         $user_id = \Request::input('user_id');
-        if(!$user_id)return $this->reportError("用户名不能为空");
+        if(!$user_id)return $this->reportJSONError("用户名不能为空");
         try {
             $user = User::find($user_id)->firstOrFail();
         } catch(ModelNotFoundException $e){
-            return $this->reportError("用户不存在");
+            return $this->reportJSONError("用户不存在");
         }
 
         $questions = \Request::input('questions');
-        if(!$questions)return $this->reportError("问题不能为空");
+        if(!$questions)return $this->reportJSONError("问题不能为空");
 
         $de_questions = json_decode($questions);
         $count_ques = count($de_questions);

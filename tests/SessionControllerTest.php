@@ -31,6 +31,6 @@ class SessionControllerTest extends TestCase {
   public function testDestroy() {
     Session::start();
     $response = $this->call('DELETE', '/session');
-    $this->assertEquals(200, $response->getStatusCode);
+    $this->assertEquals(200, $response->getStatusCode());
   }
 }

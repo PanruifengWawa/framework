@@ -9,12 +9,13 @@ class QuestionControllerTest extends TestCase{
         $response = $this->call('POST', '/question', [
             'company_name' => '大潘帝国',
             'position_name' => 'value',
-            'user_id' => '3',
+            'user_id' => '1',
             'questions' => json_encode(array('111', '222', '333')),
             '_token' => csrf_token(),
         ]);
 
         $body = $response->getContent();
+        //$this->assertEquals("1", $body);
         $this->assertEquals(200, $response->getStatusCode());
 
     }

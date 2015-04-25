@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		DB::table('questions')->delete();
         DB::table('users')->delete();
+//        DB::table('companies')->delete();
+//        DB::table('positions')->delete();
 
         Eloquent::unguard();
 
@@ -30,6 +32,17 @@ class DatabaseSeeder extends Seeder {
             'content' => '请问在Backbone.js中怎么创建一个Model？' . $i,
           ));
         }
+
+//        $company = new App\Company;
+//        $company->name = "大潘帝国";
+//        $company->email = "pangou@pangou.pangou";
+//        $company->password = "e10adc3949ba59abbe56e057f20f883e";
+//        $company->description = "pangou de pangou";
+//        $company->save();
+//
+//        $position = new App\Position;
+//        $position->title = "value";
+//        $position->save();
 	}
 
 }
