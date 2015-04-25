@@ -13,7 +13,7 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
   class Cardflow extends React.Component {
     render() {
       return (
-        <div className="row">
+        <div className="row cardflow">
           <div className="col-md-1"></div>
           <div className="col-md-5 col-md-push-5">
             <section className="selfcard">
@@ -23,8 +23,8 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                     <img className="img-circle" src={window.iu.user.avatar} width="52" height="52"/>
                   </a>
                   <div className="selfcard-head-words">
-                    <p className="selfname"><strong><a href="#/profile">{window.iu.user.username}</a></strong></p>
-                    <p className="selfdescription">{window.iu.user.description}</p>
+                    <p className="selfname"><strong><a href="#/profile">{window.iu.user.name}</a></strong></p>
+                    <p className="selfdescription">这是待添加的描述字段</p> 
                   </div>
                 </header>
               </div>  
@@ -33,13 +33,13 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                   <div className="a_numtext">
                     <a href="#/my" >
                       <div className="numtext">
-                        <p className="num_numtext">{window.iu.user.answered}</p>
+                        <p className="num_numtext">0</p>
                         <p className="text_numtext">回答</p>
                       </div>     
                     </a>
                     <a href="#/my" className="a_numtext">
                       <div className="numtext">
-                        <p className="num_numtext">{window.iu.user.asked}</p>
+                        <p className="num_numtext">0</p>
                         <p className="text_numtext">问题</p>
                       </div>     
                     </a>
