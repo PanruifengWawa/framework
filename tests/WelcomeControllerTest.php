@@ -1,6 +1,6 @@
 <?php
 
-class WlecomeControllerTest extends TestCase {
+class WelcomeControllerTest extends TestCase {
 
 
 	public function testIndex()
