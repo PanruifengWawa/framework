@@ -7,6 +7,7 @@ use App\Question;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Illuminate\Support\Facades\DB;
 use App\User;
+use App\Position;
 
 class QuestionController extends Controller {
 
