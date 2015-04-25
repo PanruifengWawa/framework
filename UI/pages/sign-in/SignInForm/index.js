@@ -22,7 +22,7 @@ define(['react', 'jquery'], function(React, $) {
           <div>
             <input className="form-control" type="email" name="email" placeholder="邮箱" required="" />
             <input className="form-control" type="password" name="password" placeholder="密码" required="" />
-            <input className="form-control button_s" type="submit" value="登陆"/>
+            <input className="form-control button_s" type="submit" value="登录"/>
           </div>
         </form>
       );
