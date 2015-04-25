@@ -22,7 +22,7 @@
   <div id="J_header"></div>
 	@yield('content')
 
-  <script src="/UI/common.bundle.js"></script>
+  <script src="{{URL::asset('UI/home.bundle.js')}}"></script>
 	@yield('scripts')
 </body>
 </html>

@@ -7,5 +7,5 @@
 
 
 @section('scripts')
-<script src="/UI/login.bundle.js"></script>
+<script src="{{URl::asset('/UI/login.bundle.js')}}"></script>
 @endsection
