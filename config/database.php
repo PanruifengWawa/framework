@@ -64,7 +64,7 @@ return [
       'strict'    => false,
     ],
 
-    'mysql-deployment' => [
+    'mysql-production' => [
       'driver'    => 'mysql',
       'host'      => env('DB_HOST', 'root'),
       'database'  => env('DB_DATABASE', 'inter'),
