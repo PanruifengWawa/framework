@@ -15,9 +15,6 @@ class QuestionControllerTest extends TestCase{
         ]);
 
         $body = $response->getContent();
-        $this->assertEquals($body, 'value');
-        //$body = json_decode($response->getContent(), true);
-        //$this->assertEquals(3, count($body));
         $this->assertEquals(200, $response->getStatusCode());
 
     }

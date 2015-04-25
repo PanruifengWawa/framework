@@ -57,9 +57,8 @@ class QuestionController extends Controller{
 
             $question->save();
             array_push($question_ids, $question->id);
-            //$user->questions()->associate($question);
-            //$question->companies()->attach($company->id);
-            //$question->positions()->attach($position->id);
+            $question->companies()->attach($company->id);
+            $question->positions()->attach($position->id);
         }
         return \Response::make(json_encode($question_ids), 200);
     }
