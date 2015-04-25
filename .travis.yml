@@ -27,6 +27,6 @@ deploy:
     secure: htLIWr8pUuPGIUeOGH9VLfEnGTtXsGIYFL1qQaSl2fjiWrFv7tqZWlEYpl1oHoRAc1tllP9YM/UOtqTgScV09Cn4LQ0NKsILNXueEQbaoftrxNqat1+M0LlJVGtucMCwzCtWMqeAb6hRGlGZyD4VzgMoB65xCdmsRMb17QjvX50=
   app: inter-u
   on:
-    branch: heroku-test
+    branch: master
   run:
     - "rm .env*"
