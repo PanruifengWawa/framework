@@ -23,4 +23,5 @@ Route::resource('session', 'SessionController',
                 ['only' => ['store', 'destroy']]);
 Route::resource('users', 'UserController',
                 ['only' => ['store']]);
+Route::resource('question','QuestionController');
 Route::get('users/sign-in', ['uses' => 'UserController@signIn']);

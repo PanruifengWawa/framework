@@ -8,15 +8,14 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Illuminate\Support\Facades\DB;
 use App\User;
 
-class QuestionDetailsController extends Controller {
+class QuestionController extends Controller {
 
-    public function details(){
+    public function show($questionId){
         if (!\Request::isMethod('get')) {
             return $this->reportError("非法请求");
 
         }
 
-        $questionId = 103;
 
         $question = $this->getQuestion($questionId);
         if($question==null) return $this->reportError("问题不存在");
@@ -28,28 +27,8 @@ class QuestionDetailsController extends Controller {
         $comments = $this->getComments($questionId);
 
 
-        echo "test233<br>";
-        echo "问题： ".$question->content."<br>";
-        echo "出题时间： ".$question->created_at."<br>";
-        echo "出题人： ".$userCreatingQuestion->name."<br>";
-        echo "用过这道题的公司: ";
-        if($companiesUsingQuestion){
-            foreach($companiesUsingQuestion as $cuq){
-                echo $cuq->name."  ";
-            }
-        }
 
-        echo "<br>";
-        echo "评论： <br>";
-        if($comments){
-            foreach($comments as $comment){
-                echo $comment->user->name." : ".$comment->content." 发表于".$comment->created_at;
-                echo "<br>";
-            }
-        }
-
-
-      //  return \Response::json(['question'=>$question,'userCreatingQuestion'=>$userCreatingQuestion,'companiesUsingQuestion'=>$companiesUsingQuestion,'comments'=>$comments]);
+        return \Response::json(['question'=>$question,'userCreatingQuestion'=>$userCreatingQuestion,'companiesUsingQuestion'=>$companiesUsingQuestion,'comments'=>$comments]);
 
 
     }
