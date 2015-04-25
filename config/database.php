@@ -66,10 +66,10 @@ return [
 
     'mysql-deployment' => [
       'driver'    => 'mysql',
-      'host'      => env('DB_DP_HOST', 'root'),
-      'database'  => env('DB_DP_DATABASE', 'inter'),
-      'username'  => env('DB_DP_USERNAME', 'root'),
-      'password'  => env('DB_DP_PASSWORD', ''),
+      'host'      => env('DB_HOST', 'root'),
+      'database'  => env('DB_DATABASE', 'inter'),
+      'username'  => env('DB_USERNAME', 'root'),
+      'password'  => env('DB_PASSWORD', ''),
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix'    => '',
