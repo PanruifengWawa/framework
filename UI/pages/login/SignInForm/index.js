@@ -10,7 +10,8 @@ define(['react', 'jquery'], function(React, $) {
 
       $.post('/session', $form.serialize())
         .done(function(data) {
-          console.log(data);
+          location.path = '/';
+          location.reload();
         })
         .fail(function(err) {
           console.log(err);
