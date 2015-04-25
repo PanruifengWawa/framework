@@ -14,14 +14,6 @@
 */
 
 
-$routing = [
-	'/' => 'WelcomeController',
-	'/user/{param}' => 'UserController',
-    '/question/{param}' => 'QuestionDetailsController',
-
-    '/question/{param}' => 'SubQuestionController',
-];
-
 
 Route::pattern('id', '[0-9]+');
 
@@ -32,3 +24,6 @@ Route::resource('session', 'SessionController',
 Route::resource('users', 'UserController',
                 ['only' => ['store']]);
 Route::get('users/sign-in', ['uses' => 'UserController@signIn']);
+
+Route::resource('question', 'QuestionController',
+                ['only' => ['store']]);
