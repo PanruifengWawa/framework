@@ -20,9 +20,14 @@ class QuestionControllerTest extends TestCase{
             '_token' => csrf_token(),
         ]);
 
-        $body = $response->getContent();
+        $body = json_decode($response->getContent(), true);
         $this->assertEquals(200, $response->getStatusCode());
-        
-        $question[0] = \App\Question::find()
+
+        $questions[0] = \App\Question::find($body[0]);
+        $questions[1] = \App\Question::find($body[1]);
+        $this->assertTrue($questions[0] != null);
+        $this->assertEquals($questions[0]->content, 'Question 1');
+        $this->assertTrue($questions[1] != null);
+        $this->assertEquals($questions[1]->content, 'Question 2');
     }
 }
