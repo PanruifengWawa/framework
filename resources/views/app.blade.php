@@ -14,7 +14,7 @@
 	?>
 	<script>
 		window.iu = {};
-		window.iu['token'] = '{{{csrf_token()}}}';
+		window.iu['_token'] = '{{{csrf_token()}}}';
 		window.iu['user'] = <?php echo $user ?>;
 	</script>
 </head>
