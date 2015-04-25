@@ -12,22 +12,7 @@ class ChangeQuestionCompanyTableName extends Migration {
 	 */
 	public function up()
 	{
-		Schema::drop('question_company');
-		Schema::create('company_question', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->integer('question_id')->unsigned();
-			$table->foreign('question_id')
-						->references('id')
-						->on('questions')
-						->onDelete('cascade');
-			$table->integer('company_id')->unsigned();
-			$table->foreign('company_id')
-						->references('id')
-						->on('companies')
-						->onDelete('cascade');
-			$table->timestamps();
-		});
+		Schema::rename('question_company', 'company_question');
 	}
 
 	/**
@@ -37,7 +22,7 @@ class ChangeQuestionCompanyTableName extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('company_question');
+		Schema::rename('company_question', 'question_company');
 	}
 
 }

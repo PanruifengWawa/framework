@@ -12,22 +12,7 @@ class ChangeQuestionPositionTableName extends Migration {
 	 */
 	public function up()
 	{
-		Schema::drop('question_position');
-		Schema::create('position_question', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->integer('question_id')->unsigned();
-			$table->foreign('question_id')
-						->references('id')
-						->on('questions')
-						->onDelete('cascade');
-			$table->integer('position_id')->unsigned();
-			$table->foreign('position_id')
-						->references('id')
-						->on('positions')
-						->onDelete('cascade');
-			$table->timestamps();
-		});
+		Schema::rename('question_position', 'position_question');
 	}
 
 	/**
@@ -37,7 +22,7 @@ class ChangeQuestionPositionTableName extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('position_question');
+		Schema::rename('position_question', 'question_position');
 	}
 
 }
