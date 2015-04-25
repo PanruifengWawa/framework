@@ -34,12 +34,13 @@ class DatabaseSeeder extends Seeder {
         }
 
         /* Seed company */
-        App\Company::create(array(
+        $company = App\Company::create(array(
             'name' => 'IBM',
             'email' => 'ibm@company.com',
             'password' => 'e10adc3949ba59abbe56e057f20f883e',
             'description' => 'A big company'
         ));
+        $question[2]->companies()->save($company);
 
         /* Seed company */
         App\Position::create(array(

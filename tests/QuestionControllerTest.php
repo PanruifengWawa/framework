@@ -13,10 +13,13 @@ class QuestionControllerTest extends TestCase{
         $body = json_decode($response->getContent(), true);
 
         $this->assertResponseStatus(200);
-        /*  $this->assertEquals(true, isset($body['question']));
-          $this->assertEquals(true, isset($body['userCreatingQuestion']));
-          $this->assertEquals(true, isset($body['companiesUsingQuestion']));
-          $this->assertEquals(true, isset($body['comments']));*/
+        $this->assertEquals(true, isset($body['question']));
+        $this->assertEquals(true, isset($body['userCreatingQuestion']));
+        $this->assertEquals(true, isset($body['companiesUsingQuestion']));
+        $this->assertEquals(true, isset($body['comments']));
+
+        $this->assertEquals('John Wu', $body['userCreatingQuestion']['name']);
+        $this->assertEquals('IBM', $body['companiesUsingQuestion'][0]['name']);
 
     }
 
