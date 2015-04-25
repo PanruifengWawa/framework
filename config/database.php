@@ -26,7 +26,7 @@ return [
   |
   */
 
-  'default' => 'mysql',
+  'default' => env('DB_TYPE','mysql'),
 
   /*
   |--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return [
 
     'mysql' => [
       'driver'    => 'mysql',
-      'host'      => 'localhost',
-      'database'  => 'inter',
-      'username'  => 'root',
-      'password'  => 'passw0rd',
+      'host'      => env('DB_HOST', 'localhost'),
+      'database'  => env('DB_NAME', 'inter'),
+      'username'  => env('DB_USERNAME', 'root'),
+      'password'  => env('DB_PASSWORD', ''),
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix'    => '',
