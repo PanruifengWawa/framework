@@ -1,10 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Admin;
-use App\Comment;
-use App\Company;
 use App\Question;
-use App\User;
 
 class WelcomeController extends Controller {
 
