@@ -19,7 +19,7 @@ class WelcomeController extends Controller {
 				]);
 		}
 		else {
-			return redirect('users/sign-in');
+			return redirect('sign-in');
 		}
 	}
 
