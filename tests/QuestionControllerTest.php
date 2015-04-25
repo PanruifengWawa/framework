@@ -6,7 +6,7 @@
  * Time: 22:06
  */
 class QuestionControllerTest extends TestCase{
-    public function testCore(){
+    public function testShow(){
         $response = $this->call('GET', 'question/103');
 
         $body = json_decode($response->getContent(), true);
