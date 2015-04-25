@@ -41,7 +41,8 @@ class SessionController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		
+		\Session::remove('user');
+		return \Response::make('', 200);
 	}
 
 }

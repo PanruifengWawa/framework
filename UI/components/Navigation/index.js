@@ -6,12 +6,28 @@
  * @module Navigation
  */
 
-define(['react'], function(React) {
+define(['react', 'jquery'], function(React, $) {
   // Require stylesheet
   require('./index.less');
   
   // React component
   class Navigation extends React.Component {
+    _handleSignOff(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '/session/destroy',
+        type: 'DELETE',
+        headers: {
+          'x-csrf-token': window.iu._token
+        }
+      }).done(function() {
+        location.href = '/';
+        location.reload();
+      }).fail(function(err) {
+        console.log(err);
+      });
+    }
+
     render() {
       if (this.props.user) {
         // 用户已经登录
@@ -31,7 +47,7 @@ define(['react'], function(React) {
                 <a href="#" className="navigation-link">个人中心</a>
               </li>
               <li className="navigation-item">
-                <a href="#" className="navigation-link">登出</a>
+                <a href="#" className="navigation-link" onClick={this._handleSignOff}>登出</a>
               </li>
             </ul>
           </nav>

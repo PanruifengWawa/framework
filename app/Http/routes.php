@@ -21,9 +21,11 @@ Route::get('/', ['uses' => 'WelcomeController@index']);
 
 Route::resource('session', 'SessionController',
                 ['only' => ['store', 'destroy']]);
+
+Route::get('users/sign-in', ['uses' => 'UserController@signIn']);
+Route::get('users/sign-up', ['uses' => 'UserController@signUp']);
 Route::resource('users', 'UserController',
                 ['only' => ['store']]);
-Route::get('users/sign-in', ['uses' => 'UserController@signIn']);
 
 Route::resource('question', 'QuestionController',
                 ['only' => ['store']]);
