@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost/lihanyang/laravel/public',
+	'url' => 'http://localhost/',
 
 	/*
 	|--------------------------------------------------------------------------
