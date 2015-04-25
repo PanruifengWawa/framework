@@ -33,13 +33,14 @@ class SessionController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 * @todo Implementation
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		\Session::remove('user');
+		if ( \Session::get('user') ) {
+			\Session::remove('user');
+		}
 		return \Response::make('', 200);
 	}
 

@@ -65,10 +65,10 @@ define(['react', 'jquery'], function(React, $) {
 
             <ul className="navigation-rightnav">
               <li className="navigation-item">
-                <a href="#" className="navigation-link">登录</a>
+                <a href="/sign-in" className="navigation-link">登录</a>
               </li>
               <li className="navigation-item">
-                <a href="/pages/register" className="navigation-link">注册</a>
+                <a href="/sign-up" className="navigation-link">注册</a>
               </li>
             </ul>
           </nav>
