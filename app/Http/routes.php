@@ -29,7 +29,7 @@ Route::resource('users', 'UserController',
                 ['only' => ['store']]);
 
 
-Route::get('users/sign-in', ['uses' => 'UserController@signIn']);
+
 
 
 Route::resource('questions', 'QuestionController',
