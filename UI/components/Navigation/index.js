@@ -15,7 +15,7 @@ define(['react', 'jquery'], function(React, $) {
     _handleSignOff(e) {
       e.preventDefault();
       $.ajax({
-        url: '/session/destroy',
+        url: '/session',
         type: 'DELETE',
         headers: {
           'x-csrf-token': window.iu._token
