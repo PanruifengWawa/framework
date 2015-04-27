@@ -1,23 +1,32 @@
 language: php
-
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
-
+- 5.4
+- 5.5
+- 5.6
+- 7.0
+- hhvm
 matrix:
-    allow_failures:
-        - php: 7.0
-
+  allow_failures:
+  - php: 7.0
 sudo: false
-
 install: travis_retry composer install --no-interaction --prefer-source
-
 before_script:
-  - mv config/database.test.php config/database.php
+  - mv .env.travis .env
   - mysql -e 'create database IF NOT EXISTS inter;'
-  - php artisan migrate --seed --no-interaction --env=test
-
+  - php artisan migrate --no-interaction --env=testing
+  - php artisan db:seed --no-interaction --env=testing
+  - npm install -g webpack
+  - npm install -g grunt
+  - npm install
+  - grunt build
 script: vendor/bin/phpunit
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: htLIWr8pUuPGIUeOGH9VLfEnGTtXsGIYFL1qQaSl2fjiWrFv7tqZWlEYpl1oHoRAc1tllP9YM/UOtqTgScV09Cn4LQ0NKsILNXueEQbaoftrxNqat1+M0LlJVGtucMCwzCtWMqeAb6hRGlGZyD4VzgMoB65xCdmsRMb17QjvX50=
+  app: inter-u
+  on:
+    branch: master
+  run:
+    - "rm .env*"
