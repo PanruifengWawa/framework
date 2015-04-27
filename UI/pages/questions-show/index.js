@@ -1,9 +1,9 @@
 require('base');
 
-require(['components', 'react'], 
-  function(components, React) {
+require(['components', 'react', './SessionMain'], 
+  function(components, React, SessionMain) {
 
-  React.render(<div>This is a question detail page.</div>,
+  React.render(<SessionMain />,
     document.getElementById('J_questions-show'));
 
 });
