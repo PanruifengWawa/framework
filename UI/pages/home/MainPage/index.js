@@ -5,16 +5,21 @@
  */
 
 
-define(['react', '../Cardflow', '../Pagination'], function(React, Cardflow, Pagination) {
+define(['react', 'components'], function(React, components) {
   // Require stylesheet
 
   // React component
+  var {
+    Cardflow,
+    Pagination 
+  } = components;
+
   class MainPage extends React.Component {
     render() {
       return (
         <div className="container">
           <div className="row">
-            <div><Cardflow /></div>
+            <div><Cardflow questions={this.props.questions.data}/></div>
           </div>
           <Pagination />
         </div>

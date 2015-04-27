@@ -3,15 +3,10 @@
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model {
-  protected $fillable = array('name',
-                              'email',
-                              'password',
-                              'avatar');
-
-  public function toJson($options = 0) {
-    // 隐藏密码字段
+  protected $fillable = array('name', 'email', 'password', 'avatar');
+  
+  function __construct() {
     $this->setHidden(['password']);
-    return parent::toJson($options);
   }
 
   public function questions() {

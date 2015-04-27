@@ -26,7 +26,7 @@ return [
   |
   */
 
-  'default' => 'mysql',
+  'default' => env('DB_TYPE', 'mysql'),
 
   /*
   |--------------------------------------------------------------------------
@@ -55,9 +55,21 @@ return [
     'mysql' => [
       'driver'    => 'mysql',
       'host'      => 'localhost',
-      'database'  => 'inter',
-      'username'  => 'root',
-      'password'  => 'passw0rd',
+      'database'  => env('DB_DATABASE', 'inter'),
+      'username'  => env('DB_USERNAME', 'root'),
+      'password'  => env('DB_PASSWORD', ''),
+      'charset'   => 'utf8',
+      'collation' => 'utf8_unicode_ci',
+      'prefix'    => '',
+      'strict'    => false,
+    ],
+
+    'mysql-production' => [
+      'driver'    => 'mysql',
+      'host'      => env('DB_HOST', 'root'),
+      'database'  => env('DB_DATABASE', 'inter'),
+      'username'  => env('DB_USERNAME', 'root'),
+      'password'  => env('DB_PASSWORD', ''),
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix'    => '',
@@ -67,7 +79,7 @@ return [
     'pgsql' => [
       'driver'   => 'pgsql',
       'host'     => env('DB_HOST', 'localhost'),
-      'database' => env('DB_DATABASE', 'forge'),
+      'database' => 'inter',
       'username' => env('DB_USERNAME', 'forge'),
       'password' => env('DB_PASSWORD', ''),
       'charset'  => 'utf8',

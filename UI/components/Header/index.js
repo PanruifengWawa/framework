@@ -23,7 +23,7 @@ define(['react', '../Navigation'], function(React, Navigation) {
               </div>
               <div className="col-sm-8">
                 <div className="header-submod-wrap">
-                  <Navigation />
+                  <Navigation user={this.props.user}/>
                 </div>
               </div>
               <div className="col-sm-2">

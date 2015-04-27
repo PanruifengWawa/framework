@@ -12,8 +12,22 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
   // React component
   class Cardflow extends React.Component {
     render() {
+      var questions = this.props.questions,
+        leftColQuestions = [], leftColTextCount = 0,
+        rightColQuestions = [], rightColTextCount = 0;
+      questions.forEach(function(question) {
+        if (leftColTextCount < rightColTextCount) {
+          leftColQuestions.push(question);
+          leftColTextCount += question.content.length;
+        }
+        else {
+          rightColQuestions.push(question);
+          rightColTextCount += question.content.length;
+        }
+      });
+
       return (
-        <div className="row">
+        <div className="row cardflow">
           <div className="col-md-1"></div>
           <div className="col-md-5 col-md-push-5">
             <section className="selfcard">
@@ -23,8 +37,8 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                     <img className="img-circle" src={window.iu.user.avatar} width="52" height="52"/>
                   </a>
                   <div className="selfcard-head-words">
-                    <p className="selfname"><strong><a href="#/profile">{window.iu.user.username}</a></strong></p>
-                    <p className="selfdescription">{window.iu.user.description}</p>
+                    <p className="selfname"><strong><a href="#/profile">{window.iu.user.name}</a></strong></p>
+                    <p className="selfdescription">这是待添加的描述字段</p> 
                   </div>
                 </header>
               </div>  
@@ -33,13 +47,13 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                   <div className="a_numtext">
                     <a href="#/my" >
                       <div className="numtext">
-                        <p className="num_numtext">{window.iu.user.answered}</p>
+                        <p className="num_numtext">0</p>
                         <p className="text_numtext">回答</p>
                       </div>     
                     </a>
                     <a href="#/my" className="a_numtext">
                       <div className="numtext">
-                        <p className="num_numtext">{window.iu.user.asked}</p>
+                        <p className="num_numtext">0</p>
                         <p className="text_numtext">问题</p>
                       </div>     
                     </a>
@@ -47,10 +61,14 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                 </header>
               </div>
             </section>
-            <CardPanel />
+            {leftColQuestions.map(function(question) {
+              return <CardPanel key={question.id} question={question}/>
+            })}
           </div>
           <div className="col-md-5 col-md-pull-5">
-            <CardPanel />
+            {rightColQuestions.map(function(question) {
+              return <CardPanel key={question.id} question={question}/>
+            })}
           </div>
           <div className="col-md-1"></div>
         </div>

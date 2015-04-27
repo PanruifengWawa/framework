@@ -5,5 +5,7 @@
 define(['components', 'react'], function(components, React) {
   require('./index.less');
   
-  React.render(<components.Header />, document.getElementById('J_header'));
+  require('./modules/ajaxSetup');
+
+  React.render(<components.Header user={window.iu.user}/>, document.getElementById('J_header'));
 });
