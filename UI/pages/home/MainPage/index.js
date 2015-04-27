@@ -19,7 +19,7 @@ define(['react', 'components'], function(React, components) {
       return (
         <div className="container">
           <div className="row">
-            <div><Cardflow /></div>
+            <div><Cardflow questions={this.props.questions.data}/></div>
           </div>
           <Pagination />
         </div>

@@ -5,6 +5,7 @@
  * Date: 2015/4/24
  * Time: 22:06
  */
+use App\Question;
 class QuestionControllerTest extends TestCase{
     public function testShow()
     {
@@ -12,22 +13,17 @@ class QuestionControllerTest extends TestCase{
 
         $body = json_decode($response->getContent(), true);
 
-        $question =null;
-
+        $question = null;
         try {
-            $question = \App\Question::where('id', '=',  1)->firstOrFail();
+            $question = Question::with(['comments','user','companies'])->where('id', '=',  1)->firstOrFail();
             return $question;
         } catch (ModelNotFoundException $e) {
         }
-        $userCreatingQuestion = $question->user;
-        $companiesUsingQuestion = $question->companies;
-        $comments = $question->comments;
+
 
         $this->assertResponseStatus(200);
         $this->assertViewHas('question',$question);
-        $this->assertViewHas('userCreatingQuestion', $userCreatingQuestion);
-        $this->assertViewHas('companiesUsingQuestion', $companiesUsingQuestion);
-        $this->assertViewHas('comments', $comments);
+
 
 
 

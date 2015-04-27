@@ -12,6 +12,20 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
   // React component
   class Cardflow extends React.Component {
     render() {
+      var questions = this.props.questions,
+        leftColQuestions = [], leftColTextCount = 0,
+        rightColQuestions = [], rightColTextCount = 0;
+      questions.forEach(function(question) {
+        if (leftColTextCount < rightColTextCount) {
+          leftColQuestions.push(question);
+          leftColTextCount += question.content.length;
+        }
+        else {
+          rightColQuestions.push(question);
+          rightColTextCount += question.content.length;
+        }
+      });
+
       return (
         <div className="row cardflow">
           <div className="col-md-1"></div>
@@ -47,10 +61,14 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                 </header>
               </div>
             </section>
-            <CardPanel />
+            {leftColQuestions.map(function(question) {
+              return <CardPanel key={question.id} question={question}/>
+            })}
           </div>
           <div className="col-md-5 col-md-pull-5">
-            <CardPanel />
+            {rightColQuestions.map(function(question) {
+              return <CardPanel key={question.id} question={question}/>
+            })}
           </div>
           <div className="col-md-1"></div>
         </div>

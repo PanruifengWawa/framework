@@ -59,49 +59,24 @@ class QuestionController extends Controller {
             return $this->reportError("非法请求");
         }
 
-
-        $question = $this->getQuestion($questionId);
-        if($question==null) return $this->reportError("问题不存在");
-
-        $userCreatingQuestion = $this->getUser($question);
-
-        $companiesUsingQuestion = $this->getCompanies($question);
-
-        $comments = $this->getComments($question);
-
-        return view('questions/show',['question'=>$question,
-            'userCreatingQuestion'=>$userCreatingQuestion,
-            'companiesUsingQuestion'=>$companiesUsingQuestion,
-            'comments'=>$comments]);
-
-
-    }
-
-    private function getComments($question){
-        $comments = $question->comments;
-        return $comments;
-    }
-
-    private function getUser($question){
-        $user = $question -> user;
-        return $user;
-    }
-
-    private function getCompanies($question){
-        $questionCompanny = $question->companies;
-        return $questionCompanny;
-    }
-
-    private function getQuestion($questionId){
+        $question = null;
         try {
-            $question = Question::where('id', '=',  $questionId)->firstOrFail();
+            $question = Question::with(['comments','user','companies'])->where('id', '=',  $questionId)->firstOrFail();
             return $question;
         } catch (ModelNotFoundException $e) {
         }
-        return null;
+
+
+        if($question==null) return $this->reportError("问题不存在");
+        return view('questions/show',['question'=>$question]);
+
     }
+
     private function reportError($st) {
         $response =  \Response::json(['error' => $st],400);
         return $response;
     }
+
+
+
 }

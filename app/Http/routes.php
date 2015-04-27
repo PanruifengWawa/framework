@@ -34,3 +34,4 @@ Route::resource('users', 'UserController',
 
 Route::resource('questions', 'QuestionController',
                 ['only' => ['store','show']]);
+

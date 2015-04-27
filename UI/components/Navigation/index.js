@@ -35,7 +35,7 @@ define(['react', 'jquery'], function(React, $) {
           <nav className="navigation">
             <ul className="navigation-leftnav">
               <li className="navigation-item">
-                <a href="#" className="navigation-link">首页</a>
+                <a href="/" className="navigation-link">首页</a>
               </li>
               <li className="navigation-item">
                 <a href="#" className="navigation-link">我的问题</a>
