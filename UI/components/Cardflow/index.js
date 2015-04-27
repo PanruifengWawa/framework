@@ -62,12 +62,12 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
               </div>
             </section>
             {leftColQuestions.map(function(question) {
-              return <CardPanel question={question}/>
+              return <CardPanel key={question.id} question={question}/>
             })}
           </div>
           <div className="col-md-5 col-md-pull-5">
             {rightColQuestions.map(function(question) {
-              return <CardPanel question={question}/>
+              return <CardPanel key={question.id} question={question}/>
             })}
           </div>
           <div className="col-md-1"></div>
