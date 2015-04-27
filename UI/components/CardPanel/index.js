@@ -12,6 +12,8 @@ define(['react'], function(React) {
   // React component
   class CardPanel extends React.Component {
     render() {
+      var question = this.props.question;
+
       return (
         <section className="card-panel">
           <div className="card-panel-body">
@@ -23,7 +25,7 @@ define(['react'], function(React) {
             </div>
             
             <div className="card-panel-content">
-              <p className="card-panel-content-p">Angular.js当中，编译一个指令发生在什么阶段？</p>
+              <p className="card-panel-content-p">{question.content}</p>
             </div>
             
             <div className="card-panel-bottom">
