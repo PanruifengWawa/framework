@@ -8,18 +8,28 @@
 class QuestionControllerTest extends TestCase{
     public function testShow()
     {
-        $response = $this->call('GET', 'questions/3');
+        $response = $this->call('GET', 'questions/1');
 
         $body = json_decode($response->getContent(), true);
 
-        $this->assertResponseStatus(200);
-        $this->assertEquals(true, isset($body['question']));
-        $this->assertEquals(true, isset($body['userCreatingQuestion']));
-        $this->assertEquals(true, isset($body['companiesUsingQuestion']));
-        $this->assertEquals(true, isset($body['comments']));
+        $question =null;
 
-        $this->assertEquals('John Wu', $body['userCreatingQuestion']['name']);
-        $this->assertEquals('IBM', $body['companiesUsingQuestion'][0]['name']);
+        try {
+            $question = \App\Question::where('id', '=',  1)->firstOrFail();
+            return $question;
+        } catch (ModelNotFoundException $e) {
+        }
+        $userCreatingQuestion = $question->user;
+        $companiesUsingQuestion = $question->companies;
+        $comments = $question->comments;
+
+        $this->assertResponseStatus(200);
+        $this->assertViewHas('question',$question);
+        $this->assertViewHas('userCreatingQuestion', $userCreatingQuestion);
+        $this->assertViewHas('companiesUsingQuestion', $companiesUsingQuestion);
+        $this->assertViewHas('comments', $comments);
+
+
 
     }
 

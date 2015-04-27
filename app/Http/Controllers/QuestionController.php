@@ -68,12 +68,11 @@ class QuestionController extends Controller {
         $companiesUsingQuestion = $this->getCompanies($question);
 
         $comments = $this->getComments($question);
-/*
+
         return view('questions/show',['question'=>$question,
             'userCreatingQuestion'=>$userCreatingQuestion,
             'companiesUsingQuestion'=>$companiesUsingQuestion,
-            'comments'=>$comments]);*/
-        return \Response::json(['question'=>$question,'userCreatingQuestion'=>$userCreatingQuestion,'companiesUsingQuestion'=>$companiesUsingQuestion,'comments'=>$comments]);
+            'comments'=>$comments]);
 
 
     }
