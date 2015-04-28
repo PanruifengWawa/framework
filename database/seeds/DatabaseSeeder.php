@@ -39,13 +39,24 @@ class DatabaseSeeder extends Seeder {
         ));
 
         /* Seed question */
+        $questions = [];
         for ( $i = 0 ; $i < 100 ; $i++ ) {
-          $question[$i] = App\Question::create(array(
-            'user_id' => $user->id,
-            'content' => '请问在Backbone.js中怎么创建一个Model？' . $i,
-          ));
-          $question[$i]->companies()->save($company);
-          $question[$i]->positions()->save($position);
+            $questions[$i] = App\Question::create(array(
+                'user_id' => $user->id,
+                'content' => '请问在Backbone.js中怎么创建一个Model？' . $i,
+                ));
+            $questions[$i]->companies()->save($company);
+            $questions[$i]->positions()->save($position);
+        }
+
+        /* Seed comment */
+        for ( $i = 0; $i < 5; $i ++ ) {
+            $comment = App\Comment::create(array(
+                'user_id' => $user->id,
+                'question_id' => $questions[0]->id,
+                'content' => '这是一个评论' . $i
+            ));
+            $comment->save();
         }
 	}
 

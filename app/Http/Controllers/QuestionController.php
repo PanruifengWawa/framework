@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class QuestionController extends Controller{
 
     public function store(){
-
         $company = new Company();
         $company_name = \Request::input('company_name');
         if(!$company_name)return $this->reportJSONError("公司名称不能为空");
@@ -55,8 +54,13 @@ class QuestionController extends Controller{
     }
 
 
-    public function show() {
-        return view('questions/show');
+    public function show($questionId) {
+        $question = Question::with([
+            'companies', 
+            'user', 
+            'comments', 
+            'comments.user'])->findOrFail($questionId);
+        return view('questions/show', ['question' => $question]);
     }
 
     public function create() {
