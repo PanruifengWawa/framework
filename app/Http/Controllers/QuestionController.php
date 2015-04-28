@@ -68,4 +68,7 @@ class QuestionController extends Controller{
         return view('questions/show');
     }
 
+    public function create() {
+        return view('questions/create');
+    }
 }

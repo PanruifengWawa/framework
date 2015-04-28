@@ -29,4 +29,4 @@ Route::resource('users', 'UserController',
                 ['only' => ['store']]);
 
 Route::resource('questions', 'QuestionController',
-                ['only' => ['store', 'show']]);
+                ['only' => ['store', 'show', 'create']]);
