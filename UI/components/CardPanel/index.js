@@ -18,7 +18,7 @@ define(['react'], function(React) {
         <section className="card-panel">
           <div className="card-panel-body">
             <div className="card-panel-head">
-                <a className="card-panel-companyname" href="">{question.companies[0].name}</a>
+                <a className="card-panel-companyname" href="">网易</a>
               <span className="card-panel-recorded">
                 <span className="glyphicon glyphicon-time" aria-hidden="true"> </span><span> 4分钟前</span>
               </span>
@@ -30,10 +30,10 @@ define(['react'], function(React) {
             
             <div className="card-panel-bottom">
               <span className="card-panel-num-answers">
-                <a href="#/question">{question.comments.length}条回答</a>
+                <a href="#/question">200条回答</a>
               </span>
               <span className="card-panel-num-asked">
-                // <a href="#/question">49人面过</a> 
+                <a href="#/question">49人面过</a> 
               </span>
             </div>
           </div>

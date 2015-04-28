@@ -33,5 +33,10 @@ Route::resource('users', 'UserController',
 
 
 Route::resource('questions', 'QuestionController',
-                ['only' => ['store','show']]);
+                ['only' => ['store', 'show', 'create']]);
 
+Route::resource('companies', 'CompanyController',
+                ['only' => ['index']]);
+
+Route::resource('positions', 'PositionController',
+                ['only' => ['index']]);

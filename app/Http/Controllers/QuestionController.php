@@ -72,11 +72,16 @@ class QuestionController extends Controller {
 
     }
 
+
     private function reportError($st) {
         $response =  \Response::json(['error' => $st],400);
         return $response;
     }
 
 
+
+    public function create() {
+        return view('questions/create');
+    }
 
 }

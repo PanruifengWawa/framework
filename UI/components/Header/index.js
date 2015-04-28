@@ -28,7 +28,7 @@ define(['react', '../Navigation'], function(React, Navigation) {
               </div>
               <div className="col-sm-2">
                 <div className="header-submod-wrap">
-                  <a className="header-button" href="#">
+                  <a className="header-button" href="/questions/create">
                     <span className="iconfont">&#xe606;</span>
                   </a> 
                 </div>
