@@ -5,7 +5,11 @@ return array(
   'single' => 'company',
   'model' => 'App\Company',
   'columns' => array(
-    'id'
+    'id',
+    'name' => array(
+      'title' => 'Name'
+    ),
+    'email'
   ),
   'edit_fields' => array(
     'name' => array(
