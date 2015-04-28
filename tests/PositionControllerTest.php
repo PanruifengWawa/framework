@@ -1,20 +1,20 @@
 <?php
 
 
-class CompanyControllerTest extends TestCase {
+class PositionControllerTest extends TestCase {
 
     public function testIndexWhenNotKeywordIsPresented()
     {
-        $response = $this->call('GET', '/companies');
+        $response = $this->call('GET', '/positions');
 
         $body = json_decode($response->getContent(), true);
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals($body[0]['name'], 'IBM');
+        $this->assertEquals($body[0]['title'], 'Front-end Engineer');
     }
 
     public function testIndexWhenKeywordIsPresented()
     {
-        $response = $this->call('GET', '/companies', [
+        $response = $this->call('GET', '/positions', [
           'keyword' => 'BB'
         ]);
 
