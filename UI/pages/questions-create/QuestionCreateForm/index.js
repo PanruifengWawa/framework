@@ -24,7 +24,7 @@ define(['react', 'jquery'], function(React, $) {
       var $form = $(React.findDOMNode(this.refs['form']));
       $.post('/questions', $form.serialize()).
         done(function(data) {
-          console.log(data);
+          // TODO: Jump to my questions stream
         }).
         fail(function(err) {
           console.log(err);
