@@ -21,7 +21,8 @@ define(['react', 'components'], function(React, components) {
           <div className="row">
             <div><Cardflow questions={this.props.questions.data}/></div>
           </div>
-          <Pagination />
+          <Pagination totalPages={this.props.questions.last_page}
+            currentPage={this.props.questions.current_page}/>
         </div>
       );
     }

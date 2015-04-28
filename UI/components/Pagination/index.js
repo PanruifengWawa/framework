@@ -12,6 +12,16 @@ define(['react'], function(React) {
   // React component
   class Pagination extends React.Component {
     render() {
+      var pageLIs = [], i;
+      for (i = 1; i <= this.props.totalPages; i ++) {
+        if (i === this.props.currentPage) {
+          pageLIs.push(<li><a className="active" href={"/?page="+i}>{i}</a></li>);
+        }
+        else {
+          pageLIs.push(<li><a href={"/?page="+i}>{i}</a></li>);
+        }
+      }
+
       return (
         <div className="pagination">
         <nav>
@@ -21,11 +31,7 @@ define(['react'], function(React) {
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li><a className="active" href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            {pageLIs}
             <li>
               <a href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
@@ -37,6 +43,11 @@ define(['react'], function(React) {
       );
     }
   }
+
+  Pagination.propTypes = {
+    currentPage: React.PropTypes.number,
+    totalPages: React.PropTypes.number
+  };
 
   return Pagination;
 });
