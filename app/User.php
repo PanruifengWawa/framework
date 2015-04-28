@@ -6,7 +6,7 @@ class User extends Model {
   protected $fillable = array('name', 'email', 'password', 'avatar');
   
   function __construct() {
-    $this->setHidden(['password']);
+    $this->setHidden(['password', 'is_admin', 'company_id', 'is_company']);
   }
 
   public function questions() {
