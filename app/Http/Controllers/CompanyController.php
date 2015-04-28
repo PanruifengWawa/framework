@@ -17,6 +17,6 @@ class CompanyController extends Controller {
       else {
         $companies = Company::all();
       }
-      return $companies->toJson();
+      return \Response::json($companies->toJson());
     }
 }
