@@ -146,6 +146,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		/**
+		 * Third party providers
+		 */
+		'Frozennode\Administrator\AdministratorServiceProvider',
 	],
 
 	/*
