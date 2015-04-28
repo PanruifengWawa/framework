@@ -26,9 +26,6 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
 
-  Route::resource('users', 'UserController',
-                  ['only' => ['store']]);
-
   Route::resource('questions', 'QuestionController',
                   ['only' => ['store', 'show', 'create']]);
 
@@ -45,6 +42,9 @@ Route::group(['middleware' => ['guest']], function() {
     'uses' => 'UserController@signIn']);
   Route::get('sign-up', [
     'uses' => 'UserController@signUp']);
+
+  Route::resource('users', 'UserController',
+                  ['only' => ['store']]);
 
   Route::resource('session', 'SessionController',
                 ['only' => ['store']]);
