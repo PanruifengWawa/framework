@@ -25,28 +25,26 @@ class DatabaseSeeder extends Seeder {
         $user->password = 'e10adc3949ba59abbe56e057f20f883e';
         $user->save();
 
-        /* Seed company */
-        $company = App\Company::create(array(
-            'name' => 'IBM',
-            'email' => 'ibm@company.com',
-            'password' => 'e10adc3949ba59abbe56e057f20f883e',
-            'description' => 'A big company'
-        ));
-
-        /* Seed position */
-        $position = App\Position::create(array(
-            'title' => 'Front-end Engineer'
-        ));
-
         /* Seed question */
         for ( $i = 0 ; $i < 100 ; $i++ ) {
           $question[$i] = App\Question::create(array(
             'user_id' => $user->id,
             'content' => '请问在Backbone.js中怎么创建一个Model？' . $i,
           ));
-          $question[$i]->companies()->save($company);
-          $question[$i]->positions()->save($position);
         }
+
+        /* Seed company */
+        App\Company::create(array(
+            'name' => 'IBM',
+            'email' => 'ibm@company.com',
+            'password' => 'e10adc3949ba59abbe56e057f20f883e',
+            'description' => 'A big company'
+        ));
+
+        /* Seed company */
+        App\Position::create(array(
+            'title' => 'Front-end Engineer'
+        ));
 	}
 
 }
