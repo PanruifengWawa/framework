@@ -63,7 +63,11 @@ return array(
 	 */
 	'permission'=> function()
 	{
-		return !!Session::get('user'); // TODO change to admin
+		$user = Session::get('user');
+		if (!$user) {
+			return false;
+		}
+		return $user->is_admin;
 	},
 
 	/**
@@ -100,14 +104,14 @@ return array(
 	 *
 	 * @type string
 	 */
-	'login_path' => 'admins/sign-in',
+	'login_path' => 'sign-in',
 
 	/**
 	 * The logout path is the path where Administrator will send the user when they click the logout link
 	 *
 	 * @type string
 	 */
-	'logout_path' => 'admins/sign-off',
+	'logout_path' => 'sign-off',
 
 	/**
 	 * This is the key of the return path that is sent with the redirection to your login_action. Session::get('redirect') will hold the return URL.
