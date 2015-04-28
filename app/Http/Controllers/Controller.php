@@ -16,4 +16,8 @@ abstract class Controller extends BaseController {
   protected function reportJSONError($st) {
     return \Response::json(['error' => $st], 400);
   }
+
+  protected function responseJSON($content, $statusCode = 200) {
+    return \Response::make($content, $statusCode, array('Content-Type' => 'application/json'));
+  }
 }

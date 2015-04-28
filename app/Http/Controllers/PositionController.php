@@ -17,6 +17,6 @@ class PositionController extends Controller {
       else {
         $positions = Position::all();
       }
-      return \Response::json($positions->toJson());
+      return $this->responseJSON($positions->toJson());
     }
 }

@@ -29,7 +29,7 @@ class UserController extends Controller {
 		$user->password = md5($password);
 		$user->email = $email;
 		$user->save();
-		return \Response::json($user->toJson(), 201);
+		return $this->responseJSON($user->toJson(), 201);
 	}
 
 	public function signIn() {
