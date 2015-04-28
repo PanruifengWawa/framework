@@ -25,7 +25,6 @@ class CompanyControllerTest extends TestCase {
         ]);
 
         $body = json_decode($response->getContent(), true);
-        var_dump($response->getContent());
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals(count($body), 0);
     }
