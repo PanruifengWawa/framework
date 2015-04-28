@@ -26,10 +26,10 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
         }
       });
 
-      return (
-        <div className="row cardflow">
-          <div className="col-md-1"></div>
-          <div className="col-md-5 col-md-push-5">
+      // show selfcard?
+      var selfcard;
+      if (this.props.showProfile) {
+        selfcard = (
             <section className="selfcard">
               <div className="selfcard-head">
                 <header className="clearfix">
@@ -61,6 +61,18 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                 </header>
               </div>
             </section>
+        );
+      }
+      else {
+        selfcard = '';
+      }
+
+      return (
+        <div className="row cardflow">
+          <div className="col-md-1"></div>
+          <div className="col-md-5 col-md-push-5">
+            
+            {selfcard}
             {leftColQuestions.map(function(question) {
               return <CardPanel key={question.id} question={question}/>
             })}

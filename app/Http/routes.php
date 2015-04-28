@@ -23,6 +23,7 @@ Route::pattern('id', '[0-9]+');
 Route::group(['middleware' => ['auth']], function() {
   // User needs to login
   Route::get('/', ['uses' => 'WelcomeController@index']);
+  Route::get('questions/my', ['uses' => 'WelcomeController@indexMy']);
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
 
