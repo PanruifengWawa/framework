@@ -27,7 +27,7 @@ class RemoveRedundantInformationInCompanies extends Migration {
 	{
 		Schema::table('companies', function(Blueprint $table)
 		{
-			$table->string('name',50)->unique();
+			$table->string('password',50)->unique();
 			$table->string('email',50)->unique();
 		});
 	}

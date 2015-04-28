@@ -25,15 +25,24 @@ class DatabaseSeeder extends Seeder {
         $user->avatar = 'http://placehold.it/80x80';
         $user->name = 'John Wu';
         $user->password = 'e10adc3949ba59abbe56e057f20f883e';
+        $user->is_admin = true;
         $user->save();
 
         /* Seed company */
         $company = App\Company::create(array(
             'name' => 'IBM',
-            'email' => 'ibm@company.com',
-            'password' => 'e10adc3949ba59abbe56e057f20f883e',
             'description' => 'A big company'
         ));
+
+        /* Seed company user */
+        $companyUser = new App\User;
+        $companyUser->email = 'test2@interu.com';
+        $companyUser->avatar = 'http://placehold.it/80x80';
+        $companyUser->name = 'John Fu';
+        $companyUser->password = 'e10adc3949ba59abbe56e057f20f883e';
+        $companyUser->is_company = true;
+        $companyUser->company_id = $company->id;
+        $companyUser->save();
 
         /* Seed position */
         $position = App\Position::create(array(
