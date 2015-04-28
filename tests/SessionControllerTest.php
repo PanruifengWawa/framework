@@ -2,6 +2,8 @@
 
 class SessionControllerTest extends TestCase {
 
+
+
   /**
    * Test store
    *
@@ -30,6 +32,7 @@ class SessionControllerTest extends TestCase {
    */
   public function testDestroy() {
     Session::start();
+    Session::set('user', $user = \App\User::all()->first());
     $response = $this->call('DELETE', 
       '/session',
       array(),
@@ -37,5 +40,6 @@ class SessionControllerTest extends TestCase {
       array(),
       array('HTTP_X-CSRF-Token' => csrf_token()));
     $this->assertEquals(200, $response->getStatusCode());
+    $this->assertTrue(!Session::get('user'));
   }
 }
