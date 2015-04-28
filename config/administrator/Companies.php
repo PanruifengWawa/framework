@@ -8,8 +8,7 @@ return array(
     'id',
     'name' => array(
       'title' => 'Name'
-    ),
-    'email'
+    )
   ),
   'edit_fields' => array(
     'name' => array(
