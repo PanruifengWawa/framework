@@ -12,4 +12,8 @@ class User extends Model {
   public function questions() {
     return $this->hasMany('App\Question');
   }
+
+  public function company() {
+    return $this->hasOne('App\Company');
+  }
 }
