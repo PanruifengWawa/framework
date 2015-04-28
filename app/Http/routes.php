@@ -17,7 +17,10 @@
 
 Route::pattern('id', '[0-9]+');
 
-Route::get('/', ['uses' => 'WelcomeController@index']);
+Route::get('/', [
+  'uses' => 'WelcomeController@index', 
+  'middleware' => ['auth']
+  ]);
 
 Route::delete('session', ['uses' => 'SessionController@destroy']);
 Route::resource('session', 'SessionController',
