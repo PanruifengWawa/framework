@@ -48,7 +48,7 @@ define(['react', 'jquery', 'rx', '../CommentList/'],
                 <div className="form-group">
                   <textarea type="text" className="form-control" id="myanswer" placeholder="你有什么见解？"></textarea>
                 </div>
-                <button className="answer-submit">提交</button>
+                <button className="button">提交</button>
               </div>
             </div>
 
