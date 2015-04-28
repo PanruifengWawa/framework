@@ -18,8 +18,6 @@
 Route::pattern('id', '[0-9]+');
 
 
-
-
 Route::group(['middleware' => ['auth']], function() {
   // User needs to login
   Route::get('/', ['uses' => 'WelcomeController@index']);
@@ -29,6 +27,8 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::resource('questions', 'QuestionController',
                   ['only' => ['store', 'show', 'create']]);
+  Route::resource('questions.comments', 'QuestionCommentController',
+                  ['only' => ['store']]);
 
   Route::resource('companies', 'CompanyController',
                   ['only' => ['index']]);
