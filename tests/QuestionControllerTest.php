@@ -11,7 +11,7 @@ class QuestionControllerTest extends TestCase{
 
         $response = $this->call('POST', '/questions', [
             'company_name' => 'IBM',
-            'position_name' => 'Front-end Engineer',
+            'position_title' => 'Front-end Engineer',
             'user_id' => $user->id,
             'questions' => json_encode(
                 array('Question 1', 

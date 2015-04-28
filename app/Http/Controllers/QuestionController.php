@@ -24,10 +24,10 @@ class QuestionController extends Controller{
         }
 
         $position = new Position();
-        $position_name = \Request::input('position_name');
-        if(!$position_name)return $this->reportError("职位名称不能为空");
+        $position_title = \Request::input('position_title');
+        if(!$position_title)return $this->reportError("职位名称不能为空");
         try {
-            $position = Position::where('title', '=', $position_name)->firstOrFail();
+            $position = Position::where('title', '=', $position_title)->firstOrFail();
         }catch (ModelNotFoundException $e){
             return $this->reportError("职位不存在");
         }
