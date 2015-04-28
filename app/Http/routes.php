@@ -17,25 +17,35 @@
 
 Route::pattern('id', '[0-9]+');
 
-Route::get('/', [
-  'uses' => 'WelcomeController@index', 
-  'middleware' => ['auth']
-  ]);
 
-Route::delete('session', ['uses' => 'SessionController@destroy']);
-Route::resource('session', 'SessionController',
+
+
+Route::group(['middleware' => ['auth']], function() {
+  // User needs to login
+  Route::get('/', ['uses' => 'WelcomeController@index']);
+
+  Route::delete('session', ['uses' => 'SessionController@destroy']);
+
+  Route::resource('users', 'UserController',
+                  ['only' => ['store']]);
+
+  Route::resource('questions', 'QuestionController',
+                  ['only' => ['store', 'show', 'create']]);
+
+  Route::resource('companies', 'CompanyController',
+                  ['only' => ['index']]);
+
+  Route::resource('positions', 'PositionController',
+                  ['only' => ['index']]);
+});
+
+Route::group(['middleware' => ['guest']], function() {
+  // User does not need to login
+  Route::get('sign-in', [
+    'uses' => 'UserController@signIn']);
+  Route::get('sign-up', [
+    'uses' => 'UserController@signUp']);
+
+  Route::resource('session', 'SessionController',
                 ['only' => ['store']]);
-
-Route::get('sign-in', ['uses' => 'UserController@signIn']);
-Route::get('sign-up', ['uses' => 'UserController@signUp']);
-Route::resource('users', 'UserController',
-                ['only' => ['store']]);
-
-Route::resource('questions', 'QuestionController',
-                ['only' => ['store', 'show', 'create']]);
-
-Route::resource('companies', 'CompanyController',
-                ['only' => ['index']]);
-
-Route::resource('positions', 'PositionController',
-                ['only' => ['index']]);
+});
