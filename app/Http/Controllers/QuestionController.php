@@ -9,6 +9,7 @@ use App\Company;
 use App\Question;
 use App\User;
 use App\Position;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class QuestionController extends Controller{
 
@@ -16,51 +17,41 @@ class QuestionController extends Controller{
 
         $company = new Company();
         $company_name = \Request::input('company_name');
-        if(!$company_name)return $this->reportError("公司名称不能为空");
+        if(!$company_name)return $this->reportJSONError("公司名称不能为空");
         try {
             $company = Company::where('name', '=', $company_name)->firstOrFail();
-        }catch (ModelNotFoundException $e){
-            return $this->reportError("公司不存在");
+        } catch (ModelNotFoundException $e){
+            return $this->reportJSONError("该公司记录不存在");
         }
 
         $position = new Position();
         $position_title = \Request::input('position_title');
-        if(!$position_title)return $this->reportError("职位名称不能为空");
+        if(!$position_title)return $this->reportJSONError("职位名称不能为空");
         try {
             $position = Position::where('title', '=', $position_title)->firstOrFail();
         }catch (ModelNotFoundException $e){
-            return $this->reportError("职位不存在");
+            return $this->reportJSONError("该职位记录不存在");
         }
 
-        $user = new User();
-        $user_id = \Request::input('user_id');
-        if(!$user_id)return $this->reportError("用户名不能为空");
-        try {
-            $user = User::find($user_id)->firstOrFail();
-        } catch(ModelNotFoundException $e){
-            return $this->reportError("用户不存在");
-        }
+        $user = \Session::get('user');
 
-        $questions = \Request::input('questions');
-        if(!$questions)return $this->reportError("问题不能为空");
+        $questionContents = \Request::input('questions');
+        
+        if ( !$questionContents || count($questionContents) === 0)
+            return $this->reportJSONError("问题不能为空");
 
-        $de_questions = json_decode($questions);
-        $count_ques = count($de_questions);
-
-        $question_ids = array();
-
-        for($i = 0; $i < $count_ques; $i++)
+        $count_questions = count($questionContents);
+        $questions = new \Illuminate\Database\Eloquent\Collection;
+        for($i = 0; $i < $count_questions; $i++)
         {
-            $question = new Question();
-            $question->content = $de_questions[$i];
-            $question->user_id = $user_id;
-
-            $question->save();
-            array_push($question_ids, $question->id);
-            $question->companies()->attach($company->id);
-            $question->positions()->attach($position->id);
+            $questions[$i] = new Question();
+            $questions[$i]->content = $questionContents[$i];
+            $questions[$i]->user_id = $user->id;
+            $questions[$i]->save();
+            $questions[$i]->companies()->attach($company->id);
+            $questions[$i]->positions()->attach($position->id);
         }
-        return \Response::make(json_encode($question_ids), 200);
+        return $this->responseJSON($questions->toJson());
     }
 
 

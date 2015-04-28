@@ -8,7 +8,7 @@ class QuestionControllerTest extends TestCase{
         Session::start();
         Session::set('user', $user = \App\User::all()->first());
     }
-    
+
     public function testStore()
     {
         Session::start();
@@ -19,18 +19,15 @@ class QuestionControllerTest extends TestCase{
         $response = $this->call('POST', '/questions', [
             'company_name' => 'IBM',
             'position_title' => 'Front-end Engineer',
-            'questions' => json_encode(
-                array('Question 1', 
-                    'Question 2')
-            ),
+            'questions' => array('Question 1', 'Question 2'),
             '_token' => csrf_token(),
         ]);
 
         $body = json_decode($response->getContent(), true);
         $this->assertEquals(200, $response->getStatusCode());
-
-        $questions[0] = \App\Question::find($body[0]);
-        $questions[1] = \App\Question::find($body[1]);
+        
+        $questions[0] = \App\Question::find($body[0]['id']);
+        $questions[1] = \App\Question::find($body[1]['id']);
         $this->assertTrue($questions[0] != null);
         $this->assertEquals($questions[0]->content, 'Question 1');
         $this->assertTrue($questions[1] != null);
@@ -46,10 +43,7 @@ class QuestionControllerTest extends TestCase{
         $response = $this->call('POST', '/questions', [
             'company_name' => 'IBMXXX',
             'position_title' => 'Front-end Engineer',
-            'questions' => json_encode(
-                array('Question 1', 
-                    'Question 2')
-            ),
+            'questions' => array('Question 1', 'Question 2'),
             '_token' => csrf_token(),
         ]);
 
