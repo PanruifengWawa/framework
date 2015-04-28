@@ -6,13 +6,13 @@ class QuestionControllerTest extends TestCase{
     public function testStore()
     {
         Session::start();
-
+        
         $user = \App\User::all()->first();
+        \Session::put('user', $user);
 
         $response = $this->call('POST', '/questions', [
             'company_name' => 'IBM',
             'position_title' => 'Front-end Engineer',
-            'user_id' => $user->id,
             'questions' => json_encode(
                 array('Question 1', 
                     'Question 2')
@@ -29,5 +29,25 @@ class QuestionControllerTest extends TestCase{
         $this->assertEquals($questions[0]->content, 'Question 1');
         $this->assertTrue($questions[1] != null);
         $this->assertEquals($questions[1]->content, 'Question 2');
+    }
+
+    public function testStoreWithCompanyNameThatDoesNotExists()
+    {
+        Session::start();
+
+        $user = \App\User::all()->first();
+
+        $response = $this->call('POST', '/questions', [
+            'company_name' => 'IBMXXX',
+            'position_title' => 'Front-end Engineer',
+            'questions' => json_encode(
+                array('Question 1', 
+                    'Question 2')
+            ),
+            '_token' => csrf_token(),
+        ]);
+
+        $body = json_decode($response->getContent(), true);
+        $this->assertEquals(400, $response->getStatusCode());
     }
 }
