@@ -23,6 +23,9 @@ Route::group(['middleware' => ['auth']], function() {
   Route::get('/', ['uses' => 'WelcomeController@index']);
   Route::get('questions/my', ['uses' => 'WelcomeController@indexMy']);
 
+  Route::get('/profile', ['uses' => 'ProfileController@basicSetting']);
+  Route::post('/profile', ['uses' => 'ProfileController@storeBasicSetting']);
+
   Route::delete('session', ['uses' => 'SessionController@destroy']);
 
   Route::resource('questions', 'QuestionController',
