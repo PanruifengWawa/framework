@@ -55,10 +55,13 @@ class QuestionController extends Controller{
 
 
     public function show($questionId) {
-        $question = Question::with([
+        $question = Question::with([])
+            ->with([
                 'companies', 
                 'user', 
-                'comments', 
+                'comments' => function($q) {
+                    return $q->orderBy('created_at', 'desc');
+                },
                 'comments.user'])
             ->findOrFail($questionId);
         return view('questions/show', ['question' => $question]);
