@@ -6,7 +6,7 @@ class ProfileControllerTest extends TestCase {
     public function setUp() {
         parent::setUp();
         Session::start();
-        Session::set('user', $user = \App\User::all()->first());
+        Session::set('user', $user = \App\User::where('email', '=', 'test1@interu.com')->get()[0]);
     }
 
     public function testStoreBasicSetting()
@@ -28,5 +28,19 @@ class ProfileControllerTest extends TestCase {
         $newUser->description = $oldDescription;
         $newUser->avatar = $oldAvatar;
         $newUser->save(); // restore original description
+    }
+
+    public function testStoreSecuritySetting()
+    {
+        $user = Session::get('user');
+        $this->call('POST', '/profile/security', array(
+            'password' => '123456',
+            'newPassword' => '234567',
+            '_token' => csrf_token()
+        ));
+        $newUser = App\User::find($user->id);
+        $this->assertEquals($newUser->password, md5('234567'));
+        $newUser->password = md5('123456');
+        $newUser->save();
     }
 }

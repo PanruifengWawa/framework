@@ -16,4 +16,11 @@ class User extends Model {
   public function company() {
     return $this->hasOne('App\Company');
   }
+
+    public function verifyPassword($password) {
+        $index = array_search('password', $this->hidden);
+        $result = md5($password) === $this->password;
+        $this->addHidden('password');
+        return $result;
+    }
 }

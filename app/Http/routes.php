@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::get('/profile', ['uses' => 'ProfileController@basicSetting']);
   Route::post('/profile', ['uses' => 'ProfileController@storeBasicSetting']);
+  Route::get('/profile/security', ['uses' => 'ProfileController@securitySetting']);
+  Route::post('/profile/security', ['uses' => 'ProfileController@storeSecuritySetting']);
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
 
