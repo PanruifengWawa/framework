@@ -38,7 +38,7 @@ define(['react', '../CardPanel', '../Pagination'], function(React, CardPanel, Pa
                   </a>
                   <div className="selfcard-head-words">
                     <p className="selfname"><strong><a href="#/profile">{window.iu.user.name}</a></strong></p>
-                    <p className="selfdescription">这是待添加的描述字段</p> 
+                    <p className="selfdescription">{window.iu.user.description}</p>
                   </div>
                 </header>
               </div>  
