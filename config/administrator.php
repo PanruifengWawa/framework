@@ -14,7 +14,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'title' => 'Admin',
+	'title' => 'InterU 管理中心',
 
 	/**
 	 * The path to your model config directory
@@ -52,7 +52,9 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-		'Companies'
+		'Companies',
+		'Positions',
+		'Questions'
 	),
 
 	/**
