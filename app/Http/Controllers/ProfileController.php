@@ -21,6 +21,9 @@ class ProfileController extends Controller {
         if ($description = \Request::input('description')) {
             $user->description = $description;
         }
+        if ($avatar = \Request::input('avatar')) {
+            $user->avatar = $avatar;
+        }
         $user->save();
         return redirect('profile');
     }

@@ -15,6 +15,11 @@
                        id="description" class="form-control" value="{{$user->description}}"/>
             </div>
             <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input type="text" name="avatar"
+                       id="avatar" class="form-control" value="{{$user->avatar}}"/>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="提交" class="button"/>
             </div>
         </form>
