@@ -60,7 +60,6 @@ class QuestionController extends Controller{
                 'user', 
                 'comments', 
                 'comments.user'])
-            ->orderBy('created_at', 'desc')
             ->findOrFail($questionId);
         return view('questions/show', ['question' => $question]);
     }
