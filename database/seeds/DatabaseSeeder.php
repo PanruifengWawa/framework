@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder {
         $user->name = 'John Wu';
         $user->password = 'e10adc3949ba59abbe56e057f20f883e';
         $user->is_admin = true;
+        $user->description = '一个前端工程师';
         $user->save();
 
         /* Seed company */
