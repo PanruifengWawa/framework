@@ -1,11 +1,19 @@
-define(['react', 'jquery', 'rx', '../CommentList/'], 
-  function(React, $, Rx, CommentList) {
+define(['react', 'jquery', '../CommentList/'], 
+  function(React, $, CommentList) {
 
   require('./index.less');
 
   class SessionMain extends React.Component {
-    _handleSubmit(e) {
+    _handleSubmitComment(e) {
       e.preventDefault();
+      var $form = $(React.findDOMNode(this.refs['comment-form']));
+      $.post('/questions/' + this.props.question.id + '/comments', $form.serialize()).
+        done(function(data) {
+          location.reload();
+        }).
+        fail(function(err) {
+          console.log(err);
+        });
     }
 
     render() {
@@ -45,10 +53,12 @@ define(['react', 'jquery', 'rx', '../CommentList/'],
 
               <div className="card youranswer">
                 <p>回答</p>
-                <div className="form-group">
-                  <textarea type="text" className="form-control" id="myanswer" placeholder="你有什么见解？"></textarea>
-                </div>
-                <button className="button">提交</button>
+                <form ref="comment-form" onSubmit={this._handleSubmitComment.bind(this)}>
+                  <div className="form-group">
+                    <textarea type="text" className="form-control" id="content" name="content" placeholder="你有什么见解？"></textarea>
+                  </div>
+                  <input type="submit" className="button" value="提交"></input>
+                </form>
               </div>
             </div>
 
