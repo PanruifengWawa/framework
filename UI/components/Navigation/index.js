@@ -44,7 +44,7 @@ define(['react', 'jquery'], function(React, $) {
 
             <ul className="navigation-rightnav">
               <li className="navigation-item">
-                <a href="#" className="navigation-link">个人中心</a>
+                <a href="/profile" className="navigation-link">个人中心</a>
               </li>
               <li className="navigation-item">
                 <a href="#" className="navigation-link" onClick={this._handleSignOff}>登出</a>
