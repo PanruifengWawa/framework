@@ -1,5 +1,9 @@
-define(['react', 'jquery'], function(React, $) {
+define(['react', 'jquery', 'components'], function(React, $, components) {
   require('./index.less');
+  var {
+    Typeahead
+  } = components;
+
   class QuestionCreateForm extends React.Component {
     constructor(props) {
       super(props);
@@ -49,13 +53,17 @@ define(['react', 'jquery'], function(React, $) {
           <div className="row">
             <div className="form-group col-sm-6">
               <label htmlFor="company_name">公司</label>
-              <input className="form-control" type="text" name="company_name" 
-                placeholder="公司名称"/>
+              <Typeahead className="form-control" name="company_name" 
+                placeholder="公司名称"
+                urlBase="/companies"
+                nameField="name"/>
             </div>
             <div className="form-group col-sm-6">
               <label htmlFor="position_title">职位</label>
-              <input className="form-control" type="text" name="position_title" 
-                placeholder="职位名称"/>
+              <Typeahead className="form-control" name="position_title" 
+                placeholder="职位名称"
+                urlBase="/positions"
+                nameField="title"/>
             </div>
           </div>
           <div className="row">

@@ -1,0 +1,30 @@
+@import '~base/mixins';
+
+.typeahead .dropdown {
+  position: absolute;
+  display: none;
+  
+  /* sub-components */
+  &-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    min-width: 20rem;
+    border-radius: 1px;
+    .iu-box-shadow();
+  }
+
+  &-item {
+    padding: .6rem .4rem;
+    cursor: pointer;
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+
+  /* state */
+  &-opened {
+    display: block;
+  }
+}
