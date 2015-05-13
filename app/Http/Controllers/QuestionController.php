@@ -26,6 +26,7 @@ class QuestionController extends Controller{
         $position = new Position();
         $position_title = \Request::input('position_title');
         if(!$position_title)return $this->reportJSONError("职位名称不能为空");
+
         try {
             $position = Position::where('title', '=', $position_title)->firstOrFail();
         }catch (ModelNotFoundException $e){
