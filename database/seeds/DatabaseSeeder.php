@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder {
         DB::table('positions')->delete();
         DB::table('companies')->delete();
         DB::table('comments')->delete();
-
         Eloquent::unguard();
 
         /* Seed user */
@@ -71,6 +70,17 @@ class DatabaseSeeder extends Seeder {
             ));
             $comment->save();
         }
+
+//        $company = new App\Company;
+//        $company->name = "大潘帝国";
+//        $company->email = "pangou@pangou.pangou";
+//        $company->password = "e10adc3949ba59abbe56e057f20f883e";
+//        $company->description = "pangou de pangou";
+//        $company->save();
+//
+//        $position = new App\Position;
+//        $position->title = "value";
+//        $position->save();
 	}
 
 }
