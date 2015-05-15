@@ -26,7 +26,7 @@ class SessionController extends Controller {
 		if(md5($password) != $user->password)
 			return $this->reportJSONError("密码错误");
 		\Session::put('user', $user);
-		return \Response::make($user->toJson(), 201);
+		return $this->responseJSON($user->toJson(), 201);
 	}
 
 
@@ -41,7 +41,7 @@ class SessionController extends Controller {
 		if ( \Session::get('user') ) {
 			\Session::remove('user');
 		}
-		return \Response::make('', 200);
+		return $this->responseJSON('[]', 200);
 	}
 
 }

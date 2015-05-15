@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => true,
+	'debug' => env('APP_DEBUG', false),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -146,6 +146,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		/**
+		 * Third party providers
+		 */
+		'Frozennode\Administrator\AdministratorServiceProvider',
 	],
 
 	/*

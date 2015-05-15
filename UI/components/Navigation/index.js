@@ -38,13 +38,13 @@ define(['react', 'jquery'], function(React, $) {
                 <a href="/" className="navigation-link">首页</a>
               </li>
               <li className="navigation-item">
-                <a href="#" className="navigation-link">我的问题</a>
+                <a href="/questions/my" className="navigation-link">我的问题</a>
               </li>
             </ul>
 
             <ul className="navigation-rightnav">
               <li className="navigation-item">
-                <a href="#" className="navigation-link">个人中心</a>
+                <a href="/profile" className="navigation-link">个人中心</a>
               </li>
               <li className="navigation-item">
                 <a href="#" className="navigation-link" onClick={this._handleSignOff}>登出</a>

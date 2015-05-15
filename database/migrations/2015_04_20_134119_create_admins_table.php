@@ -30,7 +30,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('admins');
+		Schema::dropIfExists('admins');
 	}
 
 }

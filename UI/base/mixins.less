@@ -60,16 +60,18 @@ a {
 .iu-button() {
   display: inline-block;
   line-height: normal;
-  padding: .9rem .9rem;
+  padding: 1.2rem .9rem;
   font-size: 1.6rem;
   color: white;
   border-radius: 1px;
   .iu-box-shadow(); 
+  cursor: pointer;
   background-color: @iu-link-color;
   text-align: center;
   &:hover {
     .lh-box-shadow(none);
-    // color: @in-link-hover-color;
+    text-decoration: none;
+    color: whitesmoke;
   }
 }
 

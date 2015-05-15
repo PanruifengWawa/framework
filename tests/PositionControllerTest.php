@@ -3,6 +3,12 @@
 
 class PositionControllerTest extends TestCase {
 
+    public function setUp() {
+        parent::setUp();
+        Session::start();
+        Session::set('user', $user = \App\User::all()->first());
+    }
+
     public function testIndexWhenNotKeywordIsPresented()
     {
         $response = $this->call('GET', '/positions');

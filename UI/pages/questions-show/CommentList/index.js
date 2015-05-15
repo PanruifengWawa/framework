@@ -20,9 +20,9 @@ define(['react', 'jquery'], function(React, $) {
               </a>
             </div>
             <div className="col-md-11">
-              <a href=""><img className="img-circle answer-img-circle" src="http://tp4.sinaimg.cn/2249721655/180/40038203987/0" width="26" height="26"/><span className="answer-a_name">24小时的L学妹</span></a>发表于4分钟前
+              <a href=""><img className="img-circle answer-img-circle" src={this.props.comment.user.avatar} width="26" height="26"/><span className="answer-a_name">{this.props.comment.user.name}</span></a>发表于 {this.props.comment.updated_at}
               <div className="answer-content">
-                此处是回复。
+                {this.props.comment.content}
               </div>
               <a href="" className="answer-share-link"><span className="share-img">&#xe604;</span>分享</a>
             </div>

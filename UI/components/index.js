@@ -2,17 +2,20 @@ define(['./Header',
     './Navigation',
     './Cardflow',
     './CardPanel',
-    './Pagination'], 
+    './Pagination',
+    './Typeahead'], 
   function(Header, 
     Navigation, 
     Cardflow, 
     CardPanel, 
-    Pagination) {
+    Pagination,
+    Typeahead) {
     return {
       Header: Header,
       Navigation: Navigation,
       Cardflow: Cardflow,
       CardPanel: CardPanel,
-      Pagination: Pagination
+      Pagination: Pagination,
+      Typeahead: Typeahead
     };
 });

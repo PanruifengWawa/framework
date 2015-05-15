@@ -3,7 +3,13 @@
 
 class CompanyControllerTest extends TestCase {
 
-    public function testIndexWhenNotKeywordIsPresented()
+    public function setUp() {
+        parent::setUp();
+        Session::start();
+        Session::set('user', $user = \App\User::all()->first());
+    }
+
+    public function testIndexWhenNoKeywordIsPresented()
     {
         $response = $this->call('GET', '/companies');
 
