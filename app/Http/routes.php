@@ -17,6 +17,9 @@
 
 Route::pattern('id', '[0-9]+');
 
+Route::resource('questions', 'QuestionController',
+    ['only' => ['store', 'show', 'create']]);
+
 
 Route::group(['middleware' => ['auth']], function() {
   // User needs to login
@@ -29,9 +32,9 @@ Route::group(['middleware' => ['auth']], function() {
   Route::post('/profile/security', ['uses' => 'ProfileController@storeSecuritySetting']);
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
-
+/*
   Route::resource('questions', 'QuestionController',
-                  ['only' => ['store', 'show', 'create']]);
+                  ['only' => ['store', 'show', 'create']]);*/
   Route::resource('questions.comments', 'QuestionCommentController',
                   ['only' => ['store']]);
 

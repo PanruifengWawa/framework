@@ -63,11 +63,14 @@ class QuestionController extends Controller {
                 'companies', 
                 'user', 
                 'comments' => function($q) {
-                    return $q->orderBy('created_at', 'desc');
+                    return $q->orderBy('up_vote_amount', 'desc');
                 },
                 'comments.user'])
             ->findOrFail($questionId);
-        return view('questions/show', ['question' => $question]);
+        //return view('questions/show', ['question' => $question]);
+        $question->comments[0]['test']='test';
+
+        return ['question' => $question];
 
     }
 
