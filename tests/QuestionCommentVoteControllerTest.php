@@ -6,7 +6,7 @@
  * Time: 15:26
  */
 
-class QuestionCommentVoteController extends TestCase{
+class QuestionCommentVoteControllerTest extends TestCase{
 
     public function setUp() {
         parent::setUp();
