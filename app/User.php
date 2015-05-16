@@ -17,6 +17,11 @@ class User extends Model {
     return $this->hasOne('App\Company');
   }
 
+    public function comments(){
+        return $this->belongsToMany('App\Comment');
+    }
+
+
     public function verifyPassword($password) {
         $index = array_search('password', $this->hidden);
         $result = md5($password) === $this->password;
