@@ -67,10 +67,26 @@ class QuestionController extends Controller {
                 },
                 'comments.user'])
             ->findOrFail($questionId);
-        //return view('questions/show', ['question' => $question]);
-        $question->comments[0]['test']='test';
 
-        return ['question' => $question];
+        $user = \Session::get('user');
+
+        $comments = $user->comments;//the comments which the current user has voted
+
+        $tempArray = array();
+        foreach ($comments as $c) {
+            $tempArray[$c->id] = $c->pivot->voted;
+            //to extract comment id and column-voted as key-value map
+        }
+
+        $i = 0;
+        foreach ($question->comments as $qc) {
+            if(array_key_exists($qc->id,$tempArray)){
+                 $question['comments'][$i]['voted']=$tempArray[$qc->id];
+            }else $question['comments'][$i]['voted']=0;
+            $i++;
+        }
+
+        return view('questions/show', ['question' => $question]);
 
     }
 
