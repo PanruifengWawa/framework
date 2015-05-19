@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
 class QuestionCommentVoteController extends Controller{
-    public function store($comment_id){
+    public function store($question_id, $comment_id){
         $user = new User();
         $user = \Session::get('user');
         $comment = new Comment();

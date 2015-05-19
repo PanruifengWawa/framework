@@ -6,7 +6,7 @@
  * Time: 15:26
  */
 
-class QuestionCommentVoteControllerTest extends TestCase{
+class QuestionCommentVoteControllerTest {
 
     public function setUp() {
         parent::setUp();
@@ -14,13 +14,13 @@ class QuestionCommentVoteControllerTest extends TestCase{
         Session::set('user', $user = \App\User::all()->first());
     }
 
-    public function testStore(){
+    public function testVote(){
         Session::start();
 
         $user = \App\User::all()->first();
         \Session::put('user', $user);
 
-        $response = $this->call('POST', '/questions/1/comments/1', [
+        $response = $this->call('POST', '/questions/101/comments/1/vote', [
                 'vote' => 1,
                 '_token' => csrf_token()
         ]);

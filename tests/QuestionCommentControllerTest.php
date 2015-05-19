@@ -10,7 +10,7 @@ class QuestionCommentControllerTest extends TestCase {
 
     public function testStore()
     {
-        $response = $this->call('POST', '/questions/1/comments', [
+        $response = $this->call('POST', '/questions/101/comments', [
             'content' => 'This is a comment',
             '_token' => csrf_token()
         ]);
@@ -23,5 +23,23 @@ class QuestionCommentControllerTest extends TestCase {
 
         // Delete that comment
         App\Comment::find($body['id'])->delete();
+    }
+
+
+    public function testVote(){
+        Session::start();
+
+        $user = \App\User::all()->first();
+        \Session::put('user', $user);
+
+        $response = $this->call('POST', '/questions/105/comments/2/vote', [
+            'vote' => -1,
+            '_token' => csrf_token()
+        ]);
+
+        $body = json_decode($response->getContent(), true);
+        $this->assertEquals(200, $response->getStatusCode());
+        //$this->assertEquals($body['down_vote_amount'], 9);
+        $this->assertEquals($body['user_id'], Session::get('user')->id);
     }
 }
