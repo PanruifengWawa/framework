@@ -46,10 +46,10 @@ class QuestionCommentController extends Controller {
 
         $vote = \Request::get('vote');
         if($vote == 1){
-            $comment->up_vote_amount ++;
+            $comment->up_voted_amount ++;
         }
         else if($vote == -1){
-            $comment->down_vote_amount ++;
+            $comment->down_voted_amount ++;
         }
         $comment->save();
 
