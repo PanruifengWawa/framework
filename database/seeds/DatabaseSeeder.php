@@ -67,8 +67,8 @@ class DatabaseSeeder extends Seeder {
                 'user_id' => $user->id,
                 'question_id' => $questions[0]->id,
                 'content' => '这是一个评论' . $i,
-                'up_vote_amount' => 0,
-                'down_vote_amount' => 0
+                'up_voted_amount' => 0,
+                'down_voted_amount' => 0
             ));
             $comment->save();
         }
