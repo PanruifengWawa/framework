@@ -66,21 +66,12 @@ class DatabaseSeeder extends Seeder {
             $comment = App\Comment::create(array(
                 'user_id' => $user->id,
                 'question_id' => $questions[0]->id,
-                'content' => '这是一个评论' . $i
+                'content' => '这是一个评论' . $i,
+                'up_voted_amount' => 0,
+                'down_voted_amount' => 0
             ));
             $comment->save();
         }
-
-//        $company = new App\Company;
-//        $company->name = "大潘帝国";
-//        $company->email = "pangou@pangou.pangou";
-//        $company->password = "e10adc3949ba59abbe56e057f20f883e";
-//        $company->description = "pangou de pangou";
-//        $company->save();
-//
-//        $position = new App\Position;
-//        $position->title = "value";
-//        $position->save();
 	}
 
 }
