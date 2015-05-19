@@ -16,13 +16,13 @@ class QuestionControllerTest extends TestCase{
 
     public function testShow()
     {
-        $response = $this->call('GET', 'questions/101');
+        $response = $this->call('GET', 'questions/1');
 
         $body = json_decode($response->getContent(), true);
 
         $question = null;
         try {
-            $question = Question::with(['comments','user','companies'])->where('id', '=',  101)->firstOrFail();
+            $question = Question::with(['comments','user','companies'])->where('id', '=',  1)->firstOrFail();
             return $question;
         } catch (ModelNotFoundException $e) {
         }

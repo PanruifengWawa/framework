@@ -30,7 +30,7 @@ class QuestionCommentControllerTest extends TestCase {
         $body = json_decode($response->getContent(), true);
 
         $comment = \App\Comment::find(2);
-        $comment['voted'] = -1;
+        $comment['voted'] = 0;
 
         $this->assertViewHas('comment',$comment);
     }
