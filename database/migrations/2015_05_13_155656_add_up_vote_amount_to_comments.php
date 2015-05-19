@@ -14,7 +14,7 @@ class AddUpVoteAmountToComments extends Migration {
 	{
 		Schema::table('comments', function(Blueprint $table)
 		{
-			$table->integer('up_vote_amount')->unsigned();
+			$table->integer('up_voted_amount')->unsigned();
 		});
 	}
 
@@ -27,7 +27,7 @@ class AddUpVoteAmountToComments extends Migration {
 	{
 		Schema::table('comments', function(Blueprint $table)
 		{
-			$table->dropColumn('up_vote_amount');
+			$table->dropColumn('up_voted_amount');
 		});
 	}
 

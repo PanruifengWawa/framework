@@ -63,7 +63,7 @@ class QuestionController extends Controller {
                 'companies', 
                 'user', 
                 'comments' => function($q) {
-                    return $q->orderBy('up_vote_amount', 'desc');
+                    return $q->orderBy('up_voted_amount', 'desc');
                 },
                 'comments.user'])
             ->findOrFail($questionId);
