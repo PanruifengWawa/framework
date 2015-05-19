@@ -25,7 +25,7 @@ class User extends Model {
     }
 
     public function comments(){
-        return $this->belongsToMany('App\Comment')->withPivot('voted');;
+        return $this->belongsToMany('App\Comment')->withPivot('voted');
         //ManyToMany
         //Get comments which the user has voted
     }
