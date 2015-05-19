@@ -10,7 +10,7 @@ class QuestionCommentControllerTest extends TestCase {
 
     public function testStore()
     {
-        $response = $this->call('POST', '/questions/101/comments', [
+        $response = $this->call('POST', '/questions/1/comments', [
             'content' => 'This is a comment',
             '_token' => csrf_token()
         ]);
