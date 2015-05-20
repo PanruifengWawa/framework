@@ -42,7 +42,7 @@ class QuestionCommentControllerTest extends TestCase {
         $body = json_decode($response->getContent(), true);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals($body['down_voted_amount'], 1);
-        $this->assertEquals($comment_user['voted'], -1);
+        $this->assertEquals($comment_user[0]->voted, -1);
         $this->assertEquals($body['user_id'], Session::get('user')->id);
     }
 
