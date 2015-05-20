@@ -18,6 +18,7 @@
 Route::pattern('id', '[0-9]+');
 
 
+
 Route::group(['middleware' => ['auth']], function() {
   // User needs to login
   Route::get('/', ['uses' => 'WelcomeController@index']);
@@ -33,14 +34,18 @@ Route::group(['middleware' => ['auth']], function() {
   Route::resource('questions', 'QuestionController',
                   ['only' => ['store', 'show', 'create']]);
   Route::resource('questions.comments', 'QuestionCommentController',
-                  ['only' => ['store']]);
+                  ['only' => ['store','show']]);
+
 
   Route::resource('companies', 'CompanyController',
                   ['only' => ['index']]);
 
+
   Route::resource('positions', 'PositionController',
                   ['only' => ['index']]);
 });
+
+
 
 Route::group(['middleware' => ['guest']], function() {
   // User does not need to login
@@ -55,3 +60,4 @@ Route::group(['middleware' => ['guest']], function() {
   Route::resource('session', 'SessionController',
                 ['only' => ['store']]);
 });
+

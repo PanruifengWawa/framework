@@ -23,4 +23,10 @@ class User extends Model {
         $this->addHidden('password');
         return $result;
     }
+
+    public function comments(){
+        return $this->belongsToMany('App\Comment')->withPivot('voted');
+        //ManyToMany
+        //Get comments which the user has voted
+    }
 }

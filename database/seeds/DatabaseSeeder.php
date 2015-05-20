@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder {
             'name' => 'IBM',
             'description' => 'A big company'
         ));
+        //$question[2]->companies()->save($company);
 
         /* Seed company user */
         $companyUser = new App\User;
@@ -66,7 +67,9 @@ class DatabaseSeeder extends Seeder {
             $comment = App\Comment::create(array(
                 'user_id' => $user->id,
                 'question_id' => $questions[0]->id,
-                'content' => '这是一个评论' . $i
+                'content' => '这是一个评论' . $i,
+                'up_voted_amount' => $i,
+                'down_voted_amount' => $i
             ));
             $comment->save();
         }

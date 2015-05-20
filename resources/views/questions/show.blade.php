@@ -12,3 +12,4 @@ window.iu.data.question = <?php echo $question; ?>
 @section('scripts')
 <script src="/UI/questions-show.bundle.js"></script>
 @endsection
+
