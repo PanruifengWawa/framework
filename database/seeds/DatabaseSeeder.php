@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder {
             'name' => 'IBM',
             'description' => 'A big company'
         ));
+        //$question[2]->companies()->save($company);
 
         /* Seed company user */
         $companyUser = new App\User;

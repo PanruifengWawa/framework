@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-
+use \Illuminate\Support\Facades\DB;
 use App\Comment;
 use App\Question;
 use App\User;
@@ -32,6 +32,22 @@ class QuestionCommentController extends Controller {
 		$comment->save();
 		return $this->responseJSON($comment->toJSON(), 201);
 	}
+
+    public function show($question_id,$comment_id)
+    {
+        $comment = Comment::find($comment_id);
+
+        $user = \Session::get('user');
+
+        $comment_user = $results = DB::select('select * from comment_user where comment_id = ? and user_id = ?', [$comment_id,$user->id]);
+
+        if(!empty($comment_user))
+            $comment['voted'] = $comment_user[0]->voted;
+        else $comment['voted'] = 0;
+
+        return view('comments/show', ['comment' => $comment]);
+
+    }
 
 
     public function vote($question_id, $comment_id){

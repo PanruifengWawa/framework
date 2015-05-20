@@ -1,17 +1,16 @@
-<?php
+<?php namespace App\Http\Controllers;
 
 
-namespace App\Http\Controllers;
-
-use App\Admin;
 use App\Comment;
 use App\Company;
 use App\Question;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use \Illuminate\Support\Facades\DB;
 use App\User;
 use App\Position;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class QuestionController extends Controller{
+
+class QuestionController extends Controller {
 
     public function store(){
         $company = new Company();
@@ -22,7 +21,6 @@ class QuestionController extends Controller{
         } catch (ModelNotFoundException $e){
             return $this->reportJSONError("该公司记录不存在");
         }
-
         $position = new Position();
         $position_title = \Request::input('position_title');
         if(!$position_title)return $this->reportJSONError("职位名称不能为空");
@@ -32,6 +30,7 @@ class QuestionController extends Controller{
         }catch (ModelNotFoundException $e){
             return $this->reportJSONError("该职位记录不存在");
         }
+
 
         $user = \Session::get('user');
 
@@ -50,9 +49,12 @@ class QuestionController extends Controller{
             $questions[$i]->save();
             $questions[$i]->companies()->attach($company->id);
             $questions[$i]->positions()->attach($position->id);
+
         }
         return $this->responseJSON($questions->toJson());
     }
+
+
 
 
     public function show($questionId) {
@@ -61,14 +63,37 @@ class QuestionController extends Controller{
                 'companies', 
                 'user', 
                 'comments' => function($q) {
-                    return $q->orderBy('created_at', 'desc');
+                    return $q->orderBy('up_voted_amount', 'desc');
                 },
                 'comments.user'])
             ->findOrFail($questionId);
+
+        $user = \Session::get('user');
+
+        $comments = $user->comments;//the comments which the current user has voted
+
+        $tempArray = array();
+        foreach ($comments as $c) {
+            $tempArray[$c->id] = $c->pivot->voted;
+            //to extract comment id and column-voted as key-value map
+        }
+
+        $i = 0;
+        foreach ($question->comments as $qc) {
+            if(array_key_exists($qc->id,$tempArray)){
+                 $question['comments'][$i]['voted']=$tempArray[$qc->id];
+            }else $question['comments'][$i]['voted']=0;
+            $i++;
+        }
+
         return view('questions/show', ['question' => $question]);
+
     }
+
+
 
     public function create() {
         return view('questions/create');
     }
+
 }
