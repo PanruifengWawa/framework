@@ -27,6 +27,9 @@ Route::group(['middleware' => ['auth']], function() {
   Route::get('/profile', ['uses' => 'ProfileController@basicSetting']);
   Route::post('/profile', ['uses' => 'ProfileController@storeBasicSetting']);
   Route::get('/profile/security', ['uses' => 'ProfileController@securitySetting']);
+
+  Route::post('/questions/{questions}/comments/{comments}/vote', ['uses' => 'QuestionCommentController@vote']);
+
   Route::post('/profile/security', ['uses' => 'ProfileController@storeSecuritySetting']);
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
@@ -43,6 +46,8 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::resource('positions', 'PositionController',
                   ['only' => ['index']]);
+
+  Route::resource('questions.comments', 'QuestionCommentController');
 });
 
 
