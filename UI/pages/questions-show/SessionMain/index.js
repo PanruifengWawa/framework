@@ -17,6 +17,7 @@ define(['react', 'jquery', '../CommentList/'],
     }
 
     render() {
+      var that = this;
       return (
       <div>
         <div className="container">
@@ -47,7 +48,7 @@ define(['react', 'jquery', '../CommentList/'],
               <div className="card answer-list">
                 <p>{this.props.question.comments.length}个回答</p>
                 {this.props.question.comments.map(function(comment) {
-                  return <CommentList key={comment.id} comment={comment}/>
+                  return <CommentList key={comment.id} comment={comment} {...that.props}/>
                 })}
               </div>
 
