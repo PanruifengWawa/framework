@@ -69,9 +69,9 @@ class QuestionController extends Controller {
             ->findOrFail($questionId);
 
         $user = \Session::get('user');
+        $user = User::find($user->id);
 
         $comments = $user->comments;//the comments which the current user has voted
-
         $tempArray = array();
         foreach ($comments as $c) {
             $tempArray[$c->id] = $c->pivot->voted;
