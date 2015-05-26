@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 
 class SessionController extends Controller {
 

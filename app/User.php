@@ -17,10 +17,17 @@ class User extends Model {
     return $this->hasOne('App\Company');
   }
 
+
     public function verifyPassword($password) {
         $index = array_search('password', $this->hidden);
         $result = md5($password) === $this->password;
         $this->addHidden('password');
         return $result;
+    }
+
+    public function comments(){
+        return $this->belongsToMany('App\Comment')->withPivot('voted');
+        //ManyToMany
+        //Get comments which the user has voted
     }
 }

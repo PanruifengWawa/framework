@@ -4,9 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-
+use \Illuminate\Support\Facades\DB;
 use App\Comment;
 use App\Question;
+use App\User;
 
 class QuestionCommentController extends Controller {
 
@@ -31,6 +32,46 @@ class QuestionCommentController extends Controller {
 		$comment->save();
 		return $this->responseJSON($comment->toJSON(), 201);
 	}
+
+    public function show($question_id,$comment_id)
+    {
+        $comment = Comment::find($comment_id);
+
+        $user = \Session::get('user');
+
+        $comment_user = $results = DB::select('select * from comment_user where comment_id = ? and user_id = ?', [$comment_id,$user->id]);
+
+        if(!empty($comment_user))
+            $comment['voted'] = $comment_user[0]->voted;
+        else $comment['voted'] = 0;
+
+        return view('comments/show', ['comment' => $comment]);
+
+    }
+
+
+    public function vote($question_id, $comment_id){
+        $user = new User();
+        $user = \Session::get('user');
+        $comment = new Comment();
+        try {
+            $comment = Comment::find($comment_id);
+        }catch (ModelNotFoundException $e){
+            return $this->reportJSONError("该评论不存在");
+        }
+
+        $vote = \Request::get('vote');
+        if($vote == 1){
+            $comment->up_voted_amount ++;
+        }
+        else if($vote == -1){
+            $comment->down_voted_amount ++;
+        }
+        $comment->save();
+
+        $user->comments()->attach($comment_id, ['voted' => $vote]);
+        return $this->responseJSON($comment->toJson());
+    }
 
 
 }

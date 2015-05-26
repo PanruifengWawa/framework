@@ -1,12 +1,35 @@
 <?php
-
-
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2015/4/24
+ * Time: 22:06
+ */
+use App\Question;
 class QuestionControllerTest extends TestCase{
 
     public function setUp() {
         parent::setUp();
         Session::start();
         Session::set('user', $user = \App\User::all()->first());
+    }
+
+    public function testShow()
+    {
+        $response = $this->call('GET', 'questions/1');
+
+        $body = json_decode($response->getContent(), true);
+
+        $question = null;
+        try {
+            $question = Question::with(['comments','user','companies'])->where('id', '=',  1)->firstOrFail();
+            return $question;
+        } catch (ModelNotFoundException $e) {
+        }
+
+        $this->assertResponseStatus(200);
+        $this->assertViewHas('question',$question);
+
     }
 
     public function testStore()

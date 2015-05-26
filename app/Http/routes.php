@@ -18,6 +18,7 @@
 Route::pattern('id', '[0-9]+');
 
 
+
 Route::group(['middleware' => ['auth']], function() {
   // User needs to login
   Route::get('/', ['uses' => 'WelcomeController@index']);
@@ -26,6 +27,9 @@ Route::group(['middleware' => ['auth']], function() {
   Route::get('/profile', ['uses' => 'ProfileController@basicSetting']);
   Route::post('/profile', ['uses' => 'ProfileController@storeBasicSetting']);
   Route::get('/profile/security', ['uses' => 'ProfileController@securitySetting']);
+
+  Route::post('/questions/{questions}/comments/{comments}/vote', ['uses' => 'QuestionCommentController@vote']);
+
   Route::post('/profile/security', ['uses' => 'ProfileController@storeSecuritySetting']);
 
   Route::delete('session', ['uses' => 'SessionController@destroy']);
@@ -33,14 +37,20 @@ Route::group(['middleware' => ['auth']], function() {
   Route::resource('questions', 'QuestionController',
                   ['only' => ['store', 'show', 'create']]);
   Route::resource('questions.comments', 'QuestionCommentController',
-                  ['only' => ['store']]);
+                  ['only' => ['store','show']]);
+
 
   Route::resource('companies', 'CompanyController',
                   ['only' => ['index']]);
 
+
   Route::resource('positions', 'PositionController',
                   ['only' => ['index']]);
+
+  Route::resource('questions.comments', 'QuestionCommentController');
 });
+
+
 
 Route::group(['middleware' => ['guest']], function() {
   // User does not need to login
@@ -55,3 +65,4 @@ Route::group(['middleware' => ['guest']], function() {
   Route::resource('session', 'SessionController',
                 ['only' => ['store']]);
 });
+

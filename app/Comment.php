@@ -7,6 +7,6 @@ class Comment extends Model {
   protected $fillable = array('content');
 
 	public function user() {
-		return $this->belongsTo('App\User');
+		return $this->belongsToMany('App\User');
 	}
 }
