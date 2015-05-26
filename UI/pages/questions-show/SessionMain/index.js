@@ -1,5 +1,5 @@
-define(['react', 'jquery', '../CommentList/'], 
-  function(React, $, CommentList) {
+define(['react', 'jquery', '../CommentList/', './Share'], 
+  function(React, $, CommentList, Share) {
 
   require('./index.less');
 
@@ -30,7 +30,7 @@ define(['react', 'jquery', '../CommentList/'],
                 <div className="question-bottom">
                   匿名用户 发表于 
                   <span className="createdtime">{this.props.question.user.updated_at}</span>
-                  <a href="" className="question-react"><span className="share-img">&#xe604;</span>分享</a>
+                  <Share />
                   <a href="" className="question-react"><span className="answer-img">&#xe600;</span>回答</a>
                 </div>
               </div>
