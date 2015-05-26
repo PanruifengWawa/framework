@@ -1,5 +1,6 @@
-define(['react', 'jquery', '../CommentList/', './Share'], 
-  function(React, $, CommentList, Share) {
+define(['react', 'jquery', '../CommentList/', './Share',
+    './Companies'], 
+  function(React, $, CommentList, Share, Companies) {
 
   require('./index.less');
 
@@ -37,12 +38,7 @@ define(['react', 'jquery', '../CommentList/', './Share'],
 
               <div className="card statistics">
                 <p>用过这道题的公司</p>
-                <div className="usingcompany">
-                  <a href="">
-                    <img className="company_pic" src="http://placehold.it/44x44" alt={this.props.question.companies[0].name}/>
-                    <p>{this.props.question.companies[0].name}</p>
-                  </a>
-                </div>
+                <Companies {...this.props}/>
               </div>
 
               <div className="card answer-list">

@@ -36,16 +36,19 @@ define(['react', './Dropdown', 'jquery'], function(React, Dropdown, $) {
     }
 
     _handleChoose(name) {
-      console.log(name);
       this.setState({
         text: name
       });
+      if (this.props.onChoose) {
+        this.props.onChoose(name);
+      }
     }
 
     _handleChange(event) {
       this.setState({
         value: event.target.value
       });
+
     }
 
     componentDidUpdate(prevProps, prevState) {
