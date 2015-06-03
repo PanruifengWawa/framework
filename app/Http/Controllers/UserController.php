@@ -39,4 +39,8 @@ class UserController extends Controller {
 	public function signUp() {
 		return view('users/sign-up');
 	}
+
+	public function pwdReset() {
+		return view('users/password-reset');
+	}
 }
