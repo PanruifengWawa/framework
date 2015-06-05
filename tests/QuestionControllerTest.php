@@ -22,7 +22,7 @@ class QuestionControllerTest extends TestCase{
 
         $question = null;
         try {
-            $question = Question::with(['comments','user','companies'])->where('id', '=',  1)->firstOrFail();
+            $question = Question::with(['comments','user','companies'])->where('id', '=',  173)->firstOrFail();
             return $question;
         } catch (ModelNotFoundException $e) {
         }

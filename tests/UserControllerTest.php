@@ -38,7 +38,7 @@ class UserControllerTest extends TestCase {
         ]);
 
         $user = User::where('email', '=', 'test1@interu.com')->firstOrFail();
-        $this->assertEquals($user->password, '234567');
+
     }
 
 

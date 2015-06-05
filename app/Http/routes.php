@@ -61,7 +61,7 @@ Route::group(['middleware' => ['guest']], function() {
 
 
 
-    Route::resource('change-password', [
+    Route::post('change_password', [
         'uses' => 'UserController@changePassword']);
 
 
