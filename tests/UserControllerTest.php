@@ -31,14 +31,13 @@ class UserControllerTest extends TestCase {
     public function testChangePassword(){
         Session::start();
         Session::set('confirm', '1234');
-        $response = $this->call('POST', '/change-password', [
-            'email' => 'test1@interu.com',
+        $response = $this->call('POST', '/change_password', [
+            'email' => 'pan@gmail.com',
             'password' => '234567',
             'confirm' => '1234',
         ]);
-
-        $user = User::where('email', '=', 'test1@interu.com')->firstOrFail();
-
+        $user = User::where('email', '=', 'pan@gmail.com')->firstOrFail();;
+        $this->assertEquals($user->password, md5(234567));
     }
 
 
