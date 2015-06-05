@@ -1,0 +1,39 @@
+@loading-background: red;
+@loading-size: 6px; 
+@loading-anim-duration: .8s;
+.loading:before, .loading:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+}
+.loading,
+.loading:before,
+.loading:after {
+  display: inline-block;
+  height: @loading-size;
+  width: @loading-size;
+  border-radius: 50% 50%;
+  background-color: @loading-background;
+  animation: loading @loading-anim-duration ease-in-out infinite;
+  
+}
+.loading {
+  position: relative;
+  animation-delay: @loading-anim-duration;
+}
+.loading:before {
+  left: -(@loading-size*1.6);
+}
+.loading:after {
+  right: -(@loading-size*1.6);
+  animation-delay: @loading-anim-duration * 2;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}

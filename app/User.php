@@ -17,6 +17,7 @@ class User extends Model {
     return $this->hasOne('App\Company');
   }
 
+
     public function verifyPassword($password) {
         $index = array_search('password', $this->hidden);
         $result = md5($password) === $this->password;
@@ -24,9 +25,9 @@ class User extends Model {
         return $result;
     }
 
+    //Get comments which the user has voted
     public function comments(){
         return $this->belongsToMany('App\Comment')->withPivot('voted');
         //ManyToMany
-        //Get comments which the user has voted
     }
 }

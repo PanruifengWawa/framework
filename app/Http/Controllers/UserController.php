@@ -40,6 +40,7 @@ class UserController extends Controller {
 		return view('users/sign-up');
 	}
 
+
     public function  changePassword(){
         $email = \Request::input('email');
         $confirm = \Request::input('confirm');
@@ -61,5 +62,10 @@ class UserController extends Controller {
         }
     }
 
+
+
+	public function pwdReset() {
+		return view('users/password-reset');
+	}
 
 }

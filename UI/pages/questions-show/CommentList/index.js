@@ -1,5 +1,6 @@
 define(['react', 'jquery'], function(React, $) {
   require('./index.less');
+  var Vote = require('./Vote');
 
   class CommentList extends React.Component {
     _handleSubmit(e) {
@@ -10,15 +11,7 @@ define(['react', 'jquery'], function(React, $) {
       return (
         <div className="answers">
           <div className="row">
-            <div className="col-md-1 answer-status">
-              <a href="">
-                <div className="answer-support">&#xe602;</div>
-              </a>
-              <div>+1</div>
-              <a href="">
-                <div className="answer-disagree">&#xe603;</div>
-              </a>
-            </div>
+            <Vote {...this.props}/>
             <div className="col-md-11">
               <a href=""><img className="img-circle answer-img-circle" src={this.props.comment.user.avatar} width="26" height="26"/><span className="answer-a_name">{this.props.comment.user.name}</span></a>发表于 {this.props.comment.updated_at}
               <div className="answer-content">
