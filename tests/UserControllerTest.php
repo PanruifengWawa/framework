@@ -28,6 +28,18 @@ class UserControllerTest extends TestCase {
     $user = User::where('email', '=', 'test4@interu.com')->firstOrFail();
     $user->delete();
   }
+    public function testChangePassword(){
+        Session::start();
+        Session::set('confirm', '1234');
+        $response = $this->call('POST', '/change-password', [
+            'email' => 'test1@interu.com',
+            'password' => '234567',
+            'confirm' => '1234',
+        ]);
+
+        $user = User::where('email', '=', 'test1@interu.com')->firstOrFail();
+        $this->assertEquals($user->password, '234567');
+    }
 
 
 }

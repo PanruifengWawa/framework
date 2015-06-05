@@ -54,6 +54,11 @@ Route::group(['middleware' => ['guest']], function() {
   Route::get('sign-up', [
     'uses' => 'UserController@signUp']);
 
+
+    Route::resource('change-password', [
+        'uses' => 'UserController@changePassword']);
+
+
   Route::resource('users', 'UserController',
                   ['only' => ['store']]);
 

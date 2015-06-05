@@ -39,4 +39,27 @@ class UserController extends Controller {
 	public function signUp() {
 		return view('users/sign-up');
 	}
+
+    public function  changePassword(){
+        $email = \Request::input('email');
+        $confirm = \Request::input('confirm');
+        $newPassword =  \Request::input('password');
+        if(!$email || !$confirm || !$newPassword){
+            return $this->reportJSONError("请填写完整的信息");
+        }
+        if($confirm == \Session::get('confirm')){
+            try {
+                $user = User::where('email', '=', $email)->firstOrFail();
+            }catch (ModelNotFoundException $e){
+                return $this->reportJSONError("邮箱不存在");
+            }
+            $user->password = md5($newPassword);
+            $user->save();
+
+        }else{
+            return $this->reportJSONError("验证码错误");
+        }
+    }
+
+
 }
